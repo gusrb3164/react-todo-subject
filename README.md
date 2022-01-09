@@ -67,4 +67,4 @@ interface Todo {
 2. fork한 저장소로 가서 해당 저장소를 url을 복사한 후 자신의 폴더에 clone합니다.
 3. 생성된 폴더에서 위의 프로젝트 세팅을 수행합니다.
 4. 개발이 완료된 프로젝트를 fork한 자신의 저장소에 push 합니다. (commit은 프로젝트가 끝나고 한번에 하기보다는 기능을 수정, 구현할 때마다 작은 단위로 쪼개서 지속적으로 commit 해주시길 권장 드립니다.)
-5. push한 저장소에서 pull request를 제 저장소의 master branch로 요청합니다.
+5. push한 저장소에서 pull request를 제 저장소의 branch로 요청합니다. (branch 이름은 각자 이름의 성으로 하나씩 만들었으니 거기로 pull request 부탁드립니다!)
