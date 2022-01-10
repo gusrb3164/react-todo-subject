@@ -10,7 +10,7 @@ import React from 'react';
  * }
  */
 
-function App() {
+function App(): JSX.Element {
   return (
     <main className="App">
       <h1>Todo Project</h1>
