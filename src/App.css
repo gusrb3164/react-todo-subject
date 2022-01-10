@@ -1,0 +1,45 @@
+.App{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 400px;
+}
+
+.checkList {
+	/* display: block; */
+	/* position: absolute; */
+	width: 400px;
+}
+
+.todoText, .todoDate, .todoCheckBox {
+	float: left;
+	/* position: relative; */
+}
+
+.todoCheckBox {
+	width: 13%;
+}
+
+.todoText {
+	width: 55%;
+}
+
+.todoDate {
+	width: 30%;
+}
+
+/* .todoDate {
+	float: right;
+} */
+
+.todoList {
+}
