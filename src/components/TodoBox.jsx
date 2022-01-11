@@ -1,4 +1,4 @@
-import { ButtonGroup, Button } from "@material-ui/core";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 
@@ -7,17 +7,27 @@ function TodoBox({ todoList, addTodo, setTodoList }){
 		() => JSON.parse(window.localStorage.getItem("filter")) || 'all'
 	);
 
+	const handleChange = (event, mode) => {
+		setMode(mode);
+	};
+
 	useEffect(() => {
 		window.localStorage.setItem("filter", JSON.stringify(mode));
 	}, [mode]);
 
 	return (
 		<div className="todoBox">
-			<ButtonGroup variant="outlined" className="buttonGroup">
-				<Button onClick={()=>setMode('all')}>All</Button>
-				<Button onClick={()=>setMode('active')}>Active</Button>
-				<Button onClick={()=>setMode('completed')}>Completed</Button>
-			</ButtonGroup>
+			<ToggleButtonGroup
+				color="secondary"
+				value={mode}
+				className="buttonGroup"
+				exclusive
+				onChange={handleChange}
+				>
+				<ToggleButton value="all">All</ToggleButton>
+				<ToggleButton value="active">Active</ToggleButton>
+				<ToggleButton value="completed">Completed</ToggleButton>
+			</ToggleButtonGroup>
 			<TodoList todoList={todoList} addTodo={addTodo} setTodoList={setTodoList} mode={mode} />
 		</div>
 	)
