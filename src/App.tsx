@@ -1,20 +1,13 @@
 import React from 'react';
-
-/**
- * todo interface
- * {
- *   id: string
- *   text: string
- *   completed: boolean
- *   createdAt: string
- * }
- */
+import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './pages/Main/MainPage';
 
 function App(): JSX.Element {
   return (
-    <main className="App">
-      <h1>Todo Project</h1>
-    </main>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+    </Routes>
   );
 }
 
