@@ -1,9 +1,17 @@
+@font-face {
+	font-family: 'IM_Hyemin-Bold';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 .App{
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	font-family: 'IM_Hyemin-Bold';
 }
 
 .card {
@@ -11,35 +19,72 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-width: 400px;
+	padding: 4%;
+}
+
+.colorInput{
+	float: 'left';
+	margin-top: 15px;
+	margin-left: 20px;
+	background-color: transparent;
+	border: none;
+	height: 50px;
 }
 
 .checkList {
-	/* display: block; */
-	/* position: absolute; */
 	width: 400px;
+	float: left;
 }
 
-.todoText, .todoDate, .todoCheckBox {
+.todoText, .todoDate, .todoCheckBox, .todoDelete {
 	float: left;
-	/* position: relative; */
+}
+
+.todoBox {
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.todoInputBox {
+	height: 30px;
+	width: 200px;
+	border: unset;
+	border-bottom: black solid 1px;
+}
+
+.todoInput {
+	margin-bottom: 4%;
+}
+
+.buttonGroup {
+	margin-top: 1%;
+	margin-bottom: 5%;
 }
 
 .todoCheckBox {
-	width: 13%;
+	width: 11%;
+	margin-left: 5px;
+	margin-top: 2%;
 }
 
 .todoText {
-	width: 55%;
+	width: 45%;
+	font-size: large;
 }
 
 .todoDate {
 	width: 30%;
+	font-size: small;
+	margin-top: 2%;
 }
 
-/* .todoDate {
-	float: right;
-} */
+.todoDelete {
+	width: 12%;
+}
 
 .todoList {
+	margin-bottom: 5%;
 }

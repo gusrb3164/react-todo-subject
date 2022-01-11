@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TodoBox from './components/TodoBox';
 import './App.css'
 import { Card } from '@material-ui/core';
+import { v4 as uuidv4 } from 'uuid';
+import { debounce } from 'lodash';
 
 /**
  * todo interface
@@ -15,7 +17,6 @@ import { Card } from '@material-ui/core';
  */
 
 function App() {
-	console.log(dayjs())
 	const [todoList, setTodoList] = useState(
 	  () => JSON.parse(window.localStorage.getItem("todo")) || []
 	);
@@ -26,43 +27,39 @@ function App() {
 
 	useEffect(() => {
 		window.localStorage.setItem("todo", JSON.stringify(todoList));
-		return () => {
-		console.log("re-rendered");
-		}
-	}, [todoList]);
+		window.localStorage.setItem("color", JSON.stringify(color));
+	}, [todoList, color]);
 
-	const addTodo = (content)=>{
+	const addTodo = useCallback((content)=>{
 		const date = dayjs().format('YY-MM-DD hh:mm');
-		let index = 0;
-		if (todoList.length !== 0)
-			index = todoList[todoList.length - 1].id + 1;
 		
 		const todo = {
-			id: index,
+			id: uuidv4(),
 			text: content,
 			createAt: date,
 			completed: false
 		};
 		setTodoList(todoList.concat(todo));
-	};
+	}, [todoList, setTodoList]);
 
 	return (
 		<main className="App" style={{backgroundColor: color}}>
-		<Card variant='outlined' className="card">
+		<Card variant="elevation" className="card">
 			<div>
 				<h1 style={{ float: 'left' }}>Todo Project</h1>
 				<input
 					type="color"
-					style={{ float: 'left', marginTop: 28, marginLeft: 20 }} 
-					onChange={e=>{
-					setColor(e.target.value);
-				}} />
+					className="colorInput"
+					defaultValue={color}
+					onChange={debounce(e=>{
+						setColor(e.target.value);
+						// console.log(e.target.value);
+					}, 100)}
+				/>
 			</div>
 			<TodoBox 
 				todoList={todoList}
 				addTodo={addTodo}
-				color={color}
-				setColor={setColor}
 				setTodoList={setTodoList}
 			/>
 		</Card>
