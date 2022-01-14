@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Template from './Template.js';
+import Header from './Header.js';
 
 
 /**
@@ -17,7 +18,7 @@ function App() {
   return (
     <main className="App">
       <Template>
-        <h1>Todo Project</h1>
+        <Header/>
       </Template>
       
       
