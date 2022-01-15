@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import TodoBox from './components/TodoBox';
 import './App.css'
 import { Card } from '@material-ui/core';
@@ -25,15 +25,17 @@ function App() {
 		JSON.parse(window.localStorage.getItem("color")) || '#ffffff'
 	);
 
+	const saveColor = useMemo(() => debounce(() => {
+		window.localStorage.setItem("color", JSON.stringify(color))
+	}, 500), [color]);
+
 	useEffect(() => {
 		window.localStorage.setItem("todo", JSON.stringify(todoList));
 	}, [todoList]);
 
 	useEffect(() => {
-		debounce(() => {
-			window.localStorage.setItem("color", JSON.stringify(color))
-		}, 100);
-	}, [color]);
+		saveColor();
+	}, [color, saveColor]);
 
 	const addTodo = useCallback((content)=>{
 		const date = dayjs().format('YY-MM-DD hh:mm');
