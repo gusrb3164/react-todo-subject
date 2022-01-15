@@ -4,94 +4,67 @@ import { useCallback } from "react";
 
 function CheckStuff({ todo, check, deleteTodo }){
 	return (
-		<>
-		{
-			todo.completed === true ?
-			<div className="checkList">
-				<div className="todoCheckBox">
-					<Checkbox color="primary" checked={todo.completed} onClick={()=>{
-						check(todo.id);
-					}} />
-				</div>
-				<div className="todoText">
-					<p style={{textDecoration:'line-through'}}>{todo.text}</p>
-				</div>
-				<div className="todoDate">
-					<p>{todo.createAt}</p>
-				</div>
-				<div className="todoDelete">
-					<IconButton aria-label="Delete" onClick={()=>deleteTodo(todo.id)}>
-						<DeleteOutline />
-					</IconButton>
-				</div>
+		<div className="checkList">
+			<div className="todoCheckBox">
+				<Checkbox color="primary" checked={todo.completed} onClick={()=>{
+					check(todo.id);
+				}} />
 			</div>
-			:
-			<div className="checkList">
-				<div className="todoCheckBox">
-					<Checkbox color="primary" checked={todo.completed} onClick={()=>{
-						check(todo.id);
-					}} />
-				</div>
-				<div className="todoText">
-					<p>{todo.text}</p>
-				</div>
-				<div className="todoDate">
-					<p>{todo.createAt}</p>
-				</div>
-				<div className="todoDelete">
-					<IconButton aria-label="Delete" onClick={()=>deleteTodo(todo.id)}>
-						<DeleteOutline />
-					</IconButton>
-				</div>
+			<div className="todoText">
+			{
+				todo.completed ?
+				<p style={{textDecoration:'line-through'}}>{todo.text}</p>
+				:
+				<p>{todo.text}</p>
+			}
 			</div>
-		}
-		</>
-	)
+			<div className="todoDate">
+				<p>{todo.createAt}</p>
+			</div>
+			<div className="todoDelete">
+				<IconButton aria-label="Delete" onClick={()=>deleteTodo(todo.id)}>
+					<DeleteOutline />
+				</IconButton>
+			</div>
+		</div>
+	);
 }
 
 function CheckList({ todoList, setTodoList, mode }){
-	let list = [];
-
 	const check = useCallback((id) => {
-		setTodoList(
+		setTodoList(todoList =>
 			todoList.map(todo =>
 				todo.id === id ? {...todo, completed: !todo.completed} : todo
 			)
 		);
-	}, [todoList, setTodoList]);
+	}, [setTodoList]);
 
 	const deleteTodo = useCallback((id) => {
-		setTodoList(todoList.filter(todo => todo.id !== id));
-	}, [todoList, setTodoList]);
-
-	if (mode === 'all')
-	{
-		todoList.forEach(todo=>{
-			list.push(
-				<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
-			);
-		});
-	} else if (mode === 'active') {
-		todoList.forEach(todo=>{
-			if (todo.completed === false) {
-				list.push(
-					<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
-				);
-			}
-		});
-	} else {
-		todoList.forEach(todo=>{
-			if (todo.completed === true) {
-				list.push(
-					<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
-				);
-			}
-		});
-	}
+		setTodoList(todoList => todoList.filter(todo => todo.id !== id));
+	}, [setTodoList]);
 
 	return (
 		<div className="todoList">
-			{list}
+			{
+				mode === 'all' &&
+				todoList.map(todo => (
+					<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
+				))
+			}
+			{
+				mode === 'active' &&
+				todoList.map(todo => (
+					!todo.completed &&
+					<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
+				))
+			}
+			{
+				mode === 'completed' &&
+				todoList.map(todo => (
+					todo.completed &&
+					<CheckStuff key={todo.id} todo={todo} check={check} deleteTodo={deleteTodo} />
+				))
+			}
 		</div>
 	);
 }

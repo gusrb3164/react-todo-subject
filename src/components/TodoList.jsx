@@ -10,13 +10,11 @@ function TodoList({ todoList, addTodo, setTodoList, mode }){
 		<>
 			<CheckList todoList={todoList} setTodoList={setTodoList} mode={mode} />
 			{
-				addState === true &&
-				<>
+				addState &&
 				<TodoInput setAddState={setAddState} addTodo={addTodo} />
-				</>
 			}
 			{
-				addState === false &&
+				!addState &&
 				<Fab color="primary" className="addButton" onClick={()=>{
 					setAddState(!addState);
 				}}>

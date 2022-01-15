@@ -18,17 +18,22 @@ import { debounce } from 'lodash';
 
 function App() {
 	const [todoList, setTodoList] = useState(
-	  () => JSON.parse(window.localStorage.getItem("todo")) || []
+		JSON.parse(window.localStorage.getItem("todo")) || []
 	);
 
 	const [color, setColor] = useState(
-		()=>JSON.parse(window.localStorage.getItem("color")) || '#ffffff'
+		JSON.parse(window.localStorage.getItem("color")) || '#ffffff'
 	);
 
 	useEffect(() => {
 		window.localStorage.setItem("todo", JSON.stringify(todoList));
-		window.localStorage.setItem("color", JSON.stringify(color));
-	}, [todoList, color]);
+	}, [todoList]);
+
+	useEffect(() => {
+		debounce(() => {
+			window.localStorage.setItem("color", JSON.stringify(color))
+		}, 100);
+	}, [color]);
 
 	const addTodo = useCallback((content)=>{
 		const date = dayjs().format('YY-MM-DD hh:mm');
@@ -39,8 +44,8 @@ function App() {
 			createAt: date,
 			completed: false
 		};
-		setTodoList(todoList.concat(todo));
-	}, [todoList, setTodoList]);
+		setTodoList(todoList => todoList.concat(todo));
+	}, []);
 
 	return (
 		<main className="App" style={{backgroundColor: color}}>
@@ -51,10 +56,9 @@ function App() {
 					type="color"
 					className="colorInput"
 					defaultValue={color}
-					onChange={debounce(e=>{
+					onChange={e=>{
 						setColor(e.target.value);
-						// console.log(e.target.value);
-					}, 100)}
+					}}
 				/>
 			</div>
 			<TodoBox 
