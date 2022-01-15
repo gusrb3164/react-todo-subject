@@ -39,10 +39,15 @@ function Header() {
             <GlobalStyle/>
             <HeaderBox>
                 <h1>TODO</h1>
-                <input 
-                    type='color' className='color-picker' value={colors}
-                    onChange={onChange}
-                />
+                <div>
+                    <input 
+                        type='color' 
+                        value={colors}
+                        onChange={onChange}
+                    />
+
+                </div>
+                
             </HeaderBox>
         </>
         

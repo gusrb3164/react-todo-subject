@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Template from './Template.js';
 import Header from './Header.js';
-
+import TodoList from './TodoList.js';
 
 /**
  * todo interface
@@ -19,6 +19,7 @@ function App() {
     <main className="App">
       <Template>
         <Header/>
+        <TodoList/>
       </Template>
       
       
