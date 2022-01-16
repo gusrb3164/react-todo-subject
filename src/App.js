@@ -3,6 +3,8 @@ import Template from './Template.js';
 import Header from './Header.js';
 import TodoList from './TodoList.js';
 import TodoCreate from './TodoCreate.js';
+import dayjs from 'dayjs';
+import { v1 } from 'uuid'
 
 /**
  * todo interface
@@ -19,7 +21,7 @@ function App() {
     id: "example",
     text: "Example",
     completed: false,
-    createdAt: "2022-01-01"
+    createdAt: "2022. 01. 01 00:00"
   }]);
 
   const onRemove = useCallback(id => {
@@ -33,12 +35,36 @@ function App() {
     );
   }, []);
 
+  // create
+  const [input, setInput] = useState("");
+  const onChange = useCallback(
+    e => {
+      const value = e.target.value;
+      setInput(value);
+    }, 
+  []);
+
+  const onCreate = () => {
+    const newId = v1();
+    const newDate = dayjs().format("YYYY. MM. DD HH:mm");
+    const newTodo = {
+      id: newId,
+      text: input,
+      completed: false,
+      createdAt: newDate
+    }
+
+    setTodos((todos) => ([...todos, newTodo]));
+    console.log(todos);
+    setInput("");
+  };
+
   return (
     <main className="App">
       <Template>
         <Header/>
         <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck}/>
-        <TodoCreate/>
+        <TodoCreate text={input} onChange={onChange} onCreate={onCreate}/>
       </Template>
       
       

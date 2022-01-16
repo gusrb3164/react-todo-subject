@@ -9,7 +9,7 @@ const InputBox = styled.div`
     position: absolute;
 `;
 
-const InputForm = styled.form`
+const InputForm = styled.div`
     display:flex;
     background: #e9ecef;
     padding: 10px;
@@ -50,7 +50,7 @@ function TodoCreate( { text, onChange, onCreate }) {
                 <InputForm>
                     <Input 
                         name="text"
-                        autoFocus placeholder="Enter Todo"
+                        placeholder="Enter Todo"
                         onChange={onChange}
                         value={text}
                     />
