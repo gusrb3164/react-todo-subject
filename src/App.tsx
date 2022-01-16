@@ -19,8 +19,12 @@ function App() {
     JSON.parse(window.localStorage.getItem("todoList") || "[]")
   );
 
-  useEffect(() => {
+  const saveTodoListInLocalStorage = () => {
     window.localStorage.setItem("todoList", JSON.stringify(todoList));
+  };
+
+  useEffect(() => {
+    saveTodoListInLocalStorage();
   }, [todoList]);
 
   const onCreateTodoItem = (todoText: string) => {
@@ -29,16 +33,33 @@ function App() {
       id: uuidv4(),
       text: todoText,
       completed: false,
-      createdAt: now.format("YYYY.MM.DD HH:mm:ss"),
+      createdAt: now.format("YYYY-MM-DD HH:mm:ss"),
     };
     setTodoList([...todoList, newTodo]);
+  };
+
+  const handleChangeTodoState = (id: string) => {
+    const indexToUpdate = todoList.findIndex((todo) => todo.id === id);
+    const newTodoList = todoList;
+    newTodoList[indexToUpdate].completed =
+      !newTodoList[indexToUpdate].completed;
+    setTodoList(newTodoList);
+    saveTodoListInLocalStorage(); // 문제: useEffect에서 감지 안 됨
+  };
+
+  const handleDeleteTodoItem = (id: string) => {
+    setTodoList(todoList.filter((todo) => todo.id !== id));
   };
 
   return (
     <main className="App">
       <Header />
       <TodoAdder onCreate={onCreateTodoItem} />
-      <TodoList todoList={todoList} />
+      <TodoList
+        todoList={todoList}
+        handleChangeCheckBox={handleChangeTodoState}
+        handleDeleteTodoItem={handleDeleteTodoItem}
+      />
     </main>
   );
 }
