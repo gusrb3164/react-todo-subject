@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Template from './Template.js';
 import Header from './Header.js';
 import TodoList from './TodoList.js';
@@ -22,8 +22,16 @@ function App() {
     createdAt: "2022-01-01"
   }]);
 
-  const onRemove = e => {};
-  const onCheck = e => {};
+  const onRemove = useCallback(id => {
+    setTodos(todos => todos.filter(todo => todo.id !== id));
+  }, []);
+
+  const onCheck = useCallback(id => {
+    setTodos( todos => 
+      todos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo)
+    );
+  }, []);
 
   return (
     <main className="App">
