@@ -43,13 +43,18 @@ const Add = styled.button`
 
 `;
 
-function TodoCreate() {
+function TodoCreate( { text, onChange, onCreate }) {
     return(
         <>
             <InputBox>
                 <InputForm>
-                    <Input autoFocus placeholder="Enter Todo"/>
-                    <Add>
+                    <Input 
+                        name="text"
+                        autoFocus placeholder="Enter Todo"
+                        onChange={onChange}
+                        value={text}
+                    />
+                    <Add onClick={onCreate}>
                         <CgAdd/>
                     </Add>
                 </InputForm>

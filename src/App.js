@@ -15,12 +15,21 @@ import TodoCreate from './TodoCreate.js';
  */
 
 function App() {
-  
+  const [todos, setTodos] = useState([{
+    id: "example",
+    text: "Example",
+    completed: false,
+    createdAt: "2022-01-01"
+  }]);
+
+  const onRemove = e => {};
+  const onCheck = e => {};
+
   return (
     <main className="App">
       <Template>
         <Header/>
-        <TodoList/>
+        <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck}/>
         <TodoCreate/>
       </Template>
       

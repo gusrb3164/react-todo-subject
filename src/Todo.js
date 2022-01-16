@@ -57,15 +57,15 @@ const Remove = styled.div`
 
 `;
 
-function Todo({ id, text, completed, createdAt }){
+function Todo({ id, text, completed, createdAt, onRemove, onCheck }){
     return(
         <TodoBox>
-            <Check completed={completed}>{completed && <BsCheck/>}</Check>
+            <Check completed={completed} onCheck={() => onCheck(id)}>{completed && <BsCheck/>}</Check>
             <TextBox>
                 <Text>{text}</Text>
                 <Date>{createdAt}</Date>
             </TextBox>
-            <Remove>
+            <Remove onClick={() => onRemove(id)}>
                 <BsFillTrashFill />
             </Remove>
         </TodoBox>

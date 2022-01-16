@@ -10,10 +10,18 @@ const TodoListBox = styled.div`
 
 `;
 
-function TodoList(){
+function TodoList({ todos, onRemove, onCheck }){
     return (
         <TodoListBox>
-            <Todo text="프로젝트 생성하기" completed={true} createdAt="2022-01-16"/>
+            {todos.map(todo => (
+                <Todo 
+                    id={todo.id}
+                    text={todo.text}
+                    completed={todo.completed}
+                    createdAt={todo.createdAt}
+                    onRemove={onRemove} onCheck={onCheck}
+                />
+            ))}
         </TodoListBox>
 
     );
