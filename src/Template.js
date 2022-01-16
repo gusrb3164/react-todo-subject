@@ -8,7 +8,7 @@ const TemplateBox = styled.div`
 
     background-color: white;
     border-radius: 25px;
-    border: 4px solid lightgray;
+    border: 1px solid #dee2e6;
     margin: 0 auto;
 
     margin-top: 50px;

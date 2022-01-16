@@ -14,9 +14,9 @@ const Check = styled.div`
     align-items: center;
     justify-content: center;
 
-    font-size: 28px;
-    width: 30px;
-    height: 30px;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     border: 3px solid gray;
     color: gray;
@@ -48,7 +48,7 @@ const Remove = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: lightgray;
+    color: #dee2e6;
     font-size: 18px;
     cursor: pointer;
     &:hover {
