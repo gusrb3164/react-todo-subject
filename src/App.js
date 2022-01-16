@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Template from './Template.js';
 import Header from './Header.js';
 import TodoList from './TodoList.js';
@@ -17,12 +17,11 @@ import { v1 } from 'uuid'
  */
 
 function App() {
-  const [todos, setTodos] = useState([{
-    id: "example",
-    text: "Example",
-    completed: false,
-    createdAt: "2022. 01. 01 00:00"
-  }]);
+  const [todos, setTodos] = useState(() => JSON.parse(window.localStorage.getItem("todos")));
+
+  useEffect(()=>{
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const onRemove = useCallback(id => {
     setTodos(todos => todos.filter(todo => todo.id !== id));
@@ -53,9 +52,7 @@ function App() {
       completed: false,
       createdAt: newDate
     }
-
     setTodos((todos) => ([...todos, newTodo]));
-    console.log(todos);
     setInput("");
   };
 

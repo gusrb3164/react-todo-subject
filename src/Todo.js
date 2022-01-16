@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { BsCheck, BsFillTrashFill } from 'react-icons/bs';
 
 const TodoBox = styled.div`

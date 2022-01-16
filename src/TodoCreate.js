@@ -51,6 +51,7 @@ function TodoCreate( { text, onChange, onCreate }) {
                     <Input 
                         name="text"
                         placeholder="Enter Todo"
+                        required
                         onChange={onChange}
                         value={text}
                     />

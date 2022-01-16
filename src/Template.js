@@ -10,6 +10,7 @@ const TemplateBox = styled.div`
     border-radius: 25px;
     border: 1px solid #dee2e6;
     margin: 0 auto;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 
     margin-top: 50px;
     margin-bottom: 50px;
