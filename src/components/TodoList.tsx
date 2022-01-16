@@ -5,8 +5,25 @@ type TodoListProps = {
   todoList: Todo[];
 };
 
+type TodoItemProps = {
+  todo: Todo;
+};
+
+const TodoItem = ({ todo }: TodoItemProps) => {
+  const { text, createdAt, completed } = todo;
+  return (
+    <div>
+      <div>{text}</div>
+      <div>{createdAt}</div>
+    </div>
+  );
+};
+
 const TodoList = ({ todoList }: TodoListProps) => {
-  return <div>TodoList</div>;
+  const TodoItems = todoList.map((todo) => (
+    <TodoItem key={todo.id} todo={todo} />
+  ));
+  return <>{TodoItems}</>;
 };
 
 export default TodoList;
