@@ -55,9 +55,13 @@ const HeaderLeft = styled.div`
 function Header({ checkStatus, onFilter } ) {
     const [colors, setColors] = useState(() => window.localStorage.getItem("color") || "#ffffff");
 
+    const debounceColor = debounce(() => {
+        window.localStorage.setItem("color", colors);
+    }, 500);
+    
     const onChange = e => {
         setColors(e.target.value);
-        window.localStorage.setItem("color", colors);
+        debounceColor(); 
     };
 
     const GlobalStyle = createGlobalStyle`
