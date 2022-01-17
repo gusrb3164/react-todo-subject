@@ -17,7 +17,7 @@ import { v1 } from 'uuid'
  */
 
 function App() {
-  const [todos, setTodos] = useState(() => JSON.parse(window.localStorage.getItem("todos")));
+  const [todos, setTodos] = useState(() => JSON.parse(window.localStorage.getItem("todos")) || []);
 
   useEffect(()=>{
     window.localStorage.setItem("todos", JSON.stringify(todos));
@@ -56,9 +56,10 @@ function App() {
     setInput("");
   };
 
-  const [checkStatus, setCheckStatus] = useState('all');
+  const [checkStatus, setCheckStatus] = useState(() => window.localStorage.getItem("filter") || "all");
   const onFilter = (btnId) => {
       setCheckStatus(btnId);
+      window.localStorage.setItem("filter", btnId);
   };
   
 

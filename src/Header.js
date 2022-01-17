@@ -53,11 +53,11 @@ const HeaderLeft = styled.div`
 
 
 function Header({ checkStatus, onFilter } ) {
-    const [colors, setColors] = useState(JSON.parse(window.localStorage.getItem("color")));
+    const [colors, setColors] = useState(() => window.localStorage.getItem("color") || "#ffffff");
 
     const onChange = e => {
         setColors(e.target.value);
-        window.localStorage.setItem("color", JSON.stringify(colors))
+        window.localStorage.setItem("color", colors);
     };
 
     const GlobalStyle = createGlobalStyle`
