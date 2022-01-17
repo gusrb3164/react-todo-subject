@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import Filter from './Filter';
 
 
 
@@ -49,7 +50,8 @@ const HeaderLeft = styled.div`
 `;
 
 
-function Header() {
+
+function Header({ checkStatus, onFilter } ) {
     const [colors, setColors] = useState('#ffffff');
     const onChange = e => {
         setColors(color => e.target.value)
@@ -71,7 +73,7 @@ function Header() {
                         value={colors}
                         onChange={onChange}
                     />
-                    
+                    <Filter checkStatus={checkStatus} onFilter={onFilter}/>
                 </HeaderLeft>
                 
             </HeaderBox>

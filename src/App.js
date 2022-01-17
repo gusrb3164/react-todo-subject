@@ -56,11 +56,17 @@ function App() {
     setInput("");
   };
 
+  const [checkStatus, setCheckStatus] = useState('all');
+  const onFilter = (btnId) => {
+      setCheckStatus(btnId);
+  };
+  
+
   return (
     <main className="App">
       <Template>
-        <Header/>
-        <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck}/>
+        <Header checkStatus={checkStatus} onFilter={onFilter}/>
+        <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck} btnId={checkStatus}/>
         <TodoCreate text={input} onChange={onChange} onCreate={onCreate}/>
       </Template>
       

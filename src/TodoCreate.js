@@ -6,7 +6,7 @@ const InputBox = styled.div`
     width: 100%;
     bottom: 0;
     left: 0;
-    position: absolute;
+    border-top: 1px solid #dee2e6;
 `;
 
 const InputForm = styled.div`
