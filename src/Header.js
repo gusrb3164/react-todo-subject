@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import Filter from './Filter';
+import { debounce } from "lodash";
 
 
 
@@ -52,10 +53,13 @@ const HeaderLeft = styled.div`
 
 
 function Header({ checkStatus, onFilter } ) {
-    const [colors, setColors] = useState('#ffffff');
+    const [colors, setColors] = useState(JSON.parse(window.localStorage.getItem("color")));
+
     const onChange = e => {
-        setColors(color => e.target.value)
+        setColors(e.target.value);
+        window.localStorage.setItem("color", JSON.stringify(colors))
     };
+
     const GlobalStyle = createGlobalStyle`
     body {
         background: ${colors};
