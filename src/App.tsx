@@ -18,6 +18,10 @@ function App() {
   const [todoList, setTodoList] = useState<Todo[]>(() =>
     JSON.parse(window.localStorage.getItem("todoList") || "[]")
   );
+  const [filter, setFilter] = useState<"total" | "completed" | "uncompleted">(
+    "total"
+  );
+  const [color, setColor] = useState<string>("#fff");
 
   const saveTodoListInLocalStorage = () => {
     window.localStorage.setItem("todoList", JSON.stringify(todoList));
@@ -51,12 +55,28 @@ function App() {
     setTodoList(todoList.filter((todo) => todo.id !== id));
   };
 
+  const handleChangeFilter = (
+    filter: "total" | "completed" | "uncompleted"
+  ) => {
+    setFilter(filter);
+  };
+
+  const handleChangeColor = (color: string) => {
+    setColor(color);
+  };
+
   return (
     <main className="App">
-      <Header />
+      <Header
+        filter={filter}
+        color={color}
+        handleChangeFilter={handleChangeFilter}
+        handleChangeColor={handleChangeColor}
+      />
       <TodoAdder onCreate={onCreateTodoItem} />
       <TodoList
         todoList={todoList}
+        filter={filter}
         handleChangeCheckBox={handleChangeTodoState}
         handleDeleteTodoItem={handleDeleteTodoItem}
       />

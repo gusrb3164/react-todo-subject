@@ -11,12 +11,14 @@ import "../styles/TodoList.css";
 
 type TodoListProps = {
   todoList: Todo[];
+  filter: "total" | "completed" | "uncompleted";
   handleChangeCheckBox: (id: string) => void;
   handleDeleteTodoItem: (id: string) => void;
 };
 
 type TodoItemProps = {
   todo: Todo;
+  filter: "total" | "completed" | "uncompleted";
   handleChangeCheckBox: (id: string) => void;
   handleDeleteTodoItem: (id: string) => void;
 };
@@ -55,17 +57,26 @@ const TodoItem = ({
 
 const TodoList = ({
   todoList,
+  filter,
   handleChangeCheckBox,
   handleDeleteTodoItem,
 }: TodoListProps) => {
-  const TodoItems = todoList.map((todo) => (
-    <TodoItem
-      key={todo.id}
-      todo={todo}
-      handleChangeCheckBox={handleChangeCheckBox}
-      handleDeleteTodoItem={handleDeleteTodoItem}
-    />
-  ));
+  const TodoItems = todoList.map((todo) => {
+    if (
+      filter === "total" ||
+      (todo.completed && filter === "completed") ||
+      (!todo.completed && filter === "uncompleted")
+    )
+      return (
+        <TodoItem
+          key={todo.id}
+          filter={filter}
+          todo={todo}
+          handleChangeCheckBox={handleChangeCheckBox}
+          handleDeleteTodoItem={handleDeleteTodoItem}
+        />
+      );
+  });
   return <>{TodoItems}</>;
 };
 
