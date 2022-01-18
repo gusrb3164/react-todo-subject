@@ -1,6 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React from "react";
 
+import "../../styles/Header.css";
+
 type FilterProps = {
   filter: "total" | "completed" | "uncompleted";
   handleChangeFilter: (filter: "total" | "completed" | "uncompleted") => void;
@@ -31,11 +33,11 @@ const Filter = ({ filter, handleChangeFilter }: FilterProps) => {
   };
 
   return (
-    <FormControl>
-      <InputLabel id="filter-select-label">Age</InputLabel>
+    <FormControl className="filterSelectForm">
+      <InputLabel id="filter-select-label">Filter</InputLabel>
       <Select
         labelId="filter-select-label"
-        id="filter-select"
+        id="filterSelect"
         value={filter}
         label="filter"
         onChange={(e) => onChangeFilter(e)}

@@ -1,0 +1,27 @@
+.headerWrapper {
+  margin-bottom: 1rem;
+}
+
+.colorPicker {
+  position: absolute;
+  z-index: 5;
+}
+
+#colorPickerButton {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+  font-size: 1.5rem;
+  background-color: white;
+}
+
+#filterSelect {
+  background-color: white;
+  border-radius: 3rem;
+}
+.filterSelectForm {
+  width: 100%;
+}
+.filterSelectForm div {
+  border-radius: 3rem;
+}

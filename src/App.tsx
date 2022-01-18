@@ -66,7 +66,7 @@ function App() {
   };
 
   return (
-    <main className="App">
+    <main className="App" style={{ backgroundColor: color }}>
       <Header
         filter={filter}
         color={color}

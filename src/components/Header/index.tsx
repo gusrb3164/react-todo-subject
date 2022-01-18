@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import ColorPicker from "./ColorPicker";
 import Filter from "./Filter";
@@ -9,12 +10,21 @@ type HeaderProps = {
   handleChangeColor: (color: string) => void;
 };
 
-const Header = ({ filter, handleChangeFilter }: HeaderProps) => {
+const Header = ({
+  filter,
+  color,
+  handleChangeFilter,
+  handleChangeColor,
+}: HeaderProps) => {
   return (
-    <>
-      <ColorPicker />
-      <Filter filter={filter} handleChangeFilter={handleChangeFilter} />
-    </>
+    <Grid container spacing={2} className="headerWrapper">
+      <Grid item xs={2}>
+        <ColorPicker color={color} handleChangeColor={handleChangeColor} />
+      </Grid>
+      <Grid item xs={10}>
+        <Filter filter={filter} handleChangeFilter={handleChangeFilter} />
+      </Grid>
+    </Grid>
   );
 };
 

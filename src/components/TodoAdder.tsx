@@ -15,7 +15,7 @@ const TodoAdder = ({ onCreate }: TodoAdderProps) => {
   };
 
   return (
-    <Grid container spacing={12}>
+    <Grid container spacing={2} className="todoAdderWrapper">
       <Grid item xs={9}>
         <TextField
           className="TodoInput"
@@ -28,7 +28,7 @@ const TodoAdder = ({ onCreate }: TodoAdderProps) => {
       </Grid>
       <Grid item xs={3}>
         <Button
-          className="TodoAddButton"
+          id="TodoAddButton"
           size="large"
           onClick={() => onCreate(todoText)}
         >

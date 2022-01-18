@@ -6,14 +6,15 @@
 
   max-width: 100%;
   padding: 0.5rem 2rem;
-  margin: 1rem;
+  margin-bottom: 1rem;
 
   border: 1px solid rgba(131, 131, 131, 0.4);
   border-radius: 2rem;
   box-shadow: 0.2rem 0.2rem 0.2rem rgba(131, 131, 131, 0.4);
 
-  word-wrap: normal;
+  background-color: white;
 }
+
 .todoItem .MuiFormControlLabel-root {
   width: 70%;
 }
