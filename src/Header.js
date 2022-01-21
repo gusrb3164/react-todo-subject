@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import Filter from './Filter';
@@ -55,13 +55,13 @@ const HeaderLeft = styled.div`
 function Header({ checkStatus, onFilter } ) {
     const [colors, setColors] = useState(() => window.localStorage.getItem("color") || "#ffffff");
 
-    const debounceColor = debounce(() => {
+    const debounceColor = useMemo(() => debounce((colors) => {
         window.localStorage.setItem("color", colors);
-    }, 500);
+    }, 500), []);
     
     const onChange = e => {
         setColors(e.target.value);
-        debounceColor(); 
+        debounceColor(colors); 
     };
 
     const GlobalStyle = createGlobalStyle`

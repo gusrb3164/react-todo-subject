@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { CgAdd } from 'react-icons/cg';
 
@@ -43,25 +43,29 @@ const Add = styled.button`
 
 `;
 
-function TodoCreate( { text, onChange, onCreate }) {
+function TodoCreate( { onCreate }) {
+    const [text, setText] = useState("");
+    const onChange = useCallback(
+        e => {
+        const value = e.target.value;
+        setText(value);
+        }, 
+    []);
     return(
-        <>
-            <InputBox>
-                <InputForm>
-                    <Input 
-                        name="text"
-                        placeholder="Enter Todo"
-                        required
-                        onChange={onChange}
-                        value={text}
-                    />
-                    <Add onClick={onCreate}>
-                        <CgAdd/>
-                    </Add>
-                </InputForm>
-                
-            </InputBox>
-        </>
+        <InputBox>
+            <InputForm>
+                <Input 
+                    name="text"
+                    placeholder="Enter Todo"
+                    required
+                    onChange={onChange}
+                    value={text}
+                />
+                <Add onClick={() => { onCreate(text); setText("");}}>
+                    <CgAdd/>
+                </Add>
+            </InputForm>
+        </InputBox>
     );
 }
 

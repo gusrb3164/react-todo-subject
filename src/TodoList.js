@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import Todo from './Todo';
 
@@ -15,19 +15,23 @@ function TodoList({ todos, onRemove, onCheck, btnId }){
     return (
         <TodoListBox>
             { 
-                todos.map(todo =>
-                    btnId === 'all' ?  
-                        <Todo 
-                            key={todo.id}
-                            id={todo.id}
-                            text={todo.text}
-                            completed={todo.completed}
-                            createdAt={todo.createdAt}
-                            onRemove={onRemove} 
-                            onCheck={onCheck}
-                        /> 
-                        : (btnId === 'todo' ? 
-                            (!todo.completed &&
+                todos.map(todo => {
+                    if(btnId === 'all') {
+                        return (
+                            <Todo 
+                                key={todo.id}
+                                id={todo.id}
+                                text={todo.text}
+                                completed={todo.completed}
+                                createdAt={todo.createdAt}
+                                onRemove={onRemove} 
+                                onCheck={onCheck}
+                            />
+                        );
+                    }
+                    else if (btnId === 'todo') {
+                        return (
+                            !todo.completed &&
                                 <Todo 
                                     key={todo.id}
                                     id={todo.id}
@@ -37,9 +41,11 @@ function TodoList({ todos, onRemove, onCheck, btnId }){
                                     onRemove={onRemove} 
                                     onCheck={onCheck}
                                 />
-                            ) 
-                            : 
-                            (todo.completed &&
+                        );
+                    }
+                    else {
+                        return(
+                            todo.completed &&
                                 <Todo 
                                     key={todo.id}
                                     id={todo.id}
@@ -49,8 +55,9 @@ function TodoList({ todos, onRemove, onCheck, btnId }){
                                     onRemove={onRemove} 
                                     onCheck={onCheck}
                                 />
-                            )
-                        )
+                        );
+                    }     
+                }
                 )
             }
         </TodoListBox>

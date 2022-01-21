@@ -35,25 +35,18 @@ function App() {
   }, []);
 
   // create
-  const [input, setInput] = useState("");
-  const onChange = useCallback(
-    e => {
-      const value = e.target.value;
-      setInput(value);
-    }, 
-  []);
+  
 
-  const onCreate = () => {
+  const onCreate = (text) => {
     const newId = v1();
     const newDate = dayjs().format("YYYY. MM. DD HH:mm");
     const newTodo = {
       id: newId,
-      text: input,
+      text: text,
       completed: false,
       createdAt: newDate
     }
     setTodos((todos) => ([...todos, newTodo]));
-    setInput("");
   };
 
   const [checkStatus, setCheckStatus] = useState(() => window.localStorage.getItem("filter") || "all");
@@ -68,7 +61,7 @@ function App() {
       <Template>
         <Header checkStatus={checkStatus} onFilter={onFilter}/>
         <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck} btnId={checkStatus}/>
-        <TodoCreate text={input} onChange={onChange} onCreate={onCreate}/>
+        <TodoCreate onCreate={onCreate}/>
       </Template>
       
       
