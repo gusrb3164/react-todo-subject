@@ -45,12 +45,10 @@ const Add = styled.button`
 
 function TodoCreate( { onCreate }) {
     const [text, setText] = useState("");
-    const onChange = useCallback(
-        e => {
-        const value = e.target.value;
-        setText(value);
-        }, 
-    []);
+    const onChange = useCallback(e => {
+        setText(text => e.target.value);
+    }, []);
+    
     return(
         <InputBox>
             <InputForm>
@@ -61,7 +59,7 @@ function TodoCreate( { onCreate }) {
                     onChange={onChange}
                     value={text}
                 />
-                <Add onClick={() => { onCreate(text); setText("");}}>
+                <Add onClick={() => { onCreate(text); setText(""); }}>
                     <CgAdd/>
                 </Add>
             </InputForm>
@@ -69,4 +67,4 @@ function TodoCreate( { onCreate }) {
     );
 }
 
-export default TodoCreate;
+export default React.memo(TodoCreate);

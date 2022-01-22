@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import Filter from './Filter';
@@ -59,16 +59,17 @@ function Header({ checkStatus, onFilter } ) {
         window.localStorage.setItem("color", colors);
     }, 500), []);
     
-    const onChange = e => {
-        setColors(e.target.value);
+    const onChange = useCallback(e => {
+        setColors(colors => e.target.value);
         debounceColor(colors); 
-    };
+    }, []);
 
     const GlobalStyle = createGlobalStyle`
     body {
         background: ${colors};
     }
     `;
+
     return(
         <>
             <GlobalStyle/>
@@ -90,4 +91,4 @@ function Header({ checkStatus, onFilter } ) {
     )
 };
 
-export default Header;
+export default React.memo(Header);

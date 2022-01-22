@@ -72,4 +72,4 @@ function Todo({ id, text, completed, createdAt, onRemove, onCheck }){
     );
 }
 
-export default Todo;
+export default React.memo(Todo);

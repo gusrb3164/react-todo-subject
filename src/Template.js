@@ -23,4 +23,4 @@ function Template({ children }){
     return <TemplateBox>{children}</TemplateBox>;
 }
 
-export default Template;
+export default React.memo(Template);

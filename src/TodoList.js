@@ -65,4 +65,4 @@ function TodoList({ todos, onRemove, onCheck, btnId }){
     );
 }
 
-export default TodoList;
+export default React.memo(TodoList);

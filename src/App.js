@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import Template from './Template.js';
 import Header from './Header.js';
 import TodoList from './TodoList.js';
@@ -35,9 +35,7 @@ function App() {
   }, []);
 
   // create
-  
-
-  const onCreate = (text) => {
+  const onCreate = useCallback((text) => {
     const newId = v1();
     const newDate = dayjs().format("YYYY. MM. DD HH:mm");
     const newTodo = {
@@ -46,16 +44,16 @@ function App() {
       completed: false,
       createdAt: newDate
     }
-    setTodos((todos) => ([...todos, newTodo]));
-  };
+    setTodos(todos => ([...todos, newTodo]));
+  }, []);
 
   const [checkStatus, setCheckStatus] = useState(() => window.localStorage.getItem("filter") || "all");
-  const onFilter = (btnId) => {
+
+  const onFilter = useCallback((btnId) => {
       setCheckStatus(btnId);
       window.localStorage.setItem("filter", btnId);
-  };
+  }, [checkStatus]);
   
-
   return (
     <main className="App">
       <Template>
@@ -63,8 +61,6 @@ function App() {
         <TodoList todos={todos} onRemove={onRemove} onCheck={onCheck} btnId={checkStatus}/>
         <TodoCreate onCreate={onCreate}/>
       </Template>
-      
-      
     </main>
   );
 }

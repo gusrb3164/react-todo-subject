@@ -93,4 +93,4 @@ function Filter({ checkStatus, onFilter }){
     );
 }
 
-export default Filter;
+export default React.memo(Filter);
