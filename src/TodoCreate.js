@@ -46,7 +46,7 @@ const Add = styled.button`
 function TodoCreate( { onCreate }) {
     const [text, setText] = useState("");
     const onChange = useCallback(e => {
-        setText(text => e.target.value);
+        setText(e.target.value);
     }, []);
     
     return(

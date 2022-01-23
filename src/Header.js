@@ -62,7 +62,7 @@ function Header({ checkStatus, onFilter } ) {
     const onChange = useCallback(e => {
         setColors(colors => e.target.value);
         debounceColor(colors); 
-    }, []);
+    }, [colors]);
 
     const GlobalStyle = createGlobalStyle`
     body {

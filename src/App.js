@@ -52,7 +52,7 @@ function App() {
   const onFilter = useCallback((btnId) => {
       setCheckStatus(btnId);
       window.localStorage.setItem("filter", btnId);
-  }, [checkStatus]);
+  }, []);
   
   return (
     <main className="App">
