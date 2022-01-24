@@ -7,3 +7,17 @@ export const MainLayoutContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+export const ContentsContainer = styled.main`
+  padding: 0 1rem;
+  section {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin-bottom: 1.25rem;
+      font-size: 1.125rem;
+      color: #696969;
+    }
+  }
+`;

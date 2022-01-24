@@ -5,8 +5,9 @@ export const FooterContainer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  small {
+  a {
     font-size: 1rem;
     color: #696969;
+    text-decoration: none;
   }
 `;

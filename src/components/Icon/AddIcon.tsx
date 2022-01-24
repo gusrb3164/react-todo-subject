@@ -1,7 +1,7 @@
 import React from 'react'
 import { AddIconContainer } from './styles';
 
-const ICON_SIZE = "40px";
+const ICON_SIZE = "32px";
 const ICON_COLOR = "#000000";
 
 function AddIcon() {

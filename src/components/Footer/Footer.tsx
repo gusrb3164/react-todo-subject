@@ -4,7 +4,7 @@ import { FooterContainer } from './styles';
 function Footer() {
   return (
     <FooterContainer>
-      <small>© 2022 donghoonKang-dev</small>
+      <a href="https://github.com/donghoonKang-dev">© 2022 donghoonKang-dev</a>
     </FooterContainer>
   )
 }

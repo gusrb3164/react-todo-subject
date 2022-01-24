@@ -4,13 +4,24 @@ import FilterIcon from '../Icon/FilterIcon';
 import { HeaderContainer } from './styles';
 import AddIcon from '../Icon/AddIcon';
 
-function Header(): JSX.Element {
+type HeaderProps = {
+  setFilterModalVisible: (filterModalVisible: boolean) => void;
+  setAddModalVisible: (addModalVisible: boolean) => void;
+}
+
+function Header({ setFilterModalVisible, setAddModalVisible }: HeaderProps): JSX.Element {
   return (
     <HeaderContainer>
       <Logo />
       <div>
-        <FilterIcon />
-        <AddIcon />
+        <button
+          className="modalButton"
+          onClick={() => setFilterModalVisible(true)}>
+          <FilterIcon />
+        </button>
+        <button className="modalButton" onClick={() => setAddModalVisible(true)}>
+          <AddIcon />
+        </button>
       </div>
     </HeaderContainer>
   )
