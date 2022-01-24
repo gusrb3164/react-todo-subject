@@ -67,7 +67,7 @@ export const AddModalContainer = styled.dialog`
         width: 5rem;
         height: 2rem;
         background-color: #FFFFFF;
-        border: 3px solid;
+        border: 2px solid;
         border-radius: 0.75rem;
         font-size: 1rem;
         color: #696969;

@@ -5,7 +5,7 @@ import TodoListItem from './TodoListItem';
 let data = [
   {
     id: 1,
-    label: 'Want',
+    label: 'Need',
     text: 'Design React study subject by Figma',
     completed: true,
     createdAt: '2022.01.11 08:14',
@@ -16,6 +16,27 @@ let data = [
     text: 'Get React study subject layout',
     completed: false,
     createdAt: '2022.01.11 08:15',
+  },
+  {
+    id: 3,
+    label: 'Want',
+    text: 'Read Agile book on the way home',
+    completed: false,
+    createdAt: '2022.01.11 08:16',
+  },
+  {
+    id: 4,
+    label: 'Routine',
+    text: 'Run 3.0km',
+    completed: false,
+    createdAt: '2022.01.11 10:12',
+  },
+  {
+    id: 5,
+    label: 'Routine',
+    text: 'Home training lower body and upper body',
+    completed: false,
+    createdAt: '2022.01.11 10:13',
   },
 ];
 

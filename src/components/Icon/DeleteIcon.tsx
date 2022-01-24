@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeleteIconContainer } from './styles';
 
-const ICON_SIZE = "28px";
+const ICON_SIZE = "24px";
 const ICON_COLOR = "#AEAEAE";
 
 function DeleteIcon(): JSX.Element {

@@ -2,9 +2,12 @@ import React from 'react';
 import { FilterIconContainer } from './styles';
 
 const ICON_SIZE = "32px";
-const ICON_COLOR = "#000000";
 
-function FilterIcon() {
+type FilterIconProps = {
+  isClicked: boolean;
+}
+
+function FilterIcon({ isClicked }: FilterIconProps ) {
   return (
     <FilterIconContainer
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +15,7 @@ function FilterIcon() {
       height={ICON_SIZE}
       viewBox="0 0 24 24"
       width={ICON_SIZE}
-      fill={ICON_COLOR}
+      fill={isClicked ? "#F68B7D" : "#000000"}
     ><g>
       <path
         d="M0,0h24 M24,24H0"

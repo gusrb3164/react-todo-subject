@@ -15,6 +15,8 @@ function MainPage(): JSX.Element {
     <MainLayoutContainer>
       <div>
         <Header
+          filterModalVisible={filterModalVisible}
+          addModalVisible={addModalVisible}
           setFilterModalVisible={setFilterModalVisible}
           setAddModalVisible={setAddModalVisible}
         />
