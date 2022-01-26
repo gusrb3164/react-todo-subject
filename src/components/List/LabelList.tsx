@@ -5,9 +5,9 @@ import { LabelListContainer } from './styles';
 function LabelList(): JSX.Element {
   return (
     <LabelListContainer>
-      <LabelListItem title="Need" color="#F7C978" />
-      <LabelListItem title="Want" color="#F68B7D" />
-      <LabelListItem title="Routine" color="#A6C0FE" />
+      <LabelListItem id={1} title="Need" color="#F7C978" />
+      <LabelListItem id={2} title="Want" color="#F68B7D" />
+      <LabelListItem id={3} title="Routine" color="#A6C0FE" />
     </LabelListContainer>
   )
 }

@@ -3,7 +3,7 @@ import getIconColor from '../../utils/getIconColor';
 import { UnCheckedIconContainer } from './styles';
 
 type UnCheckedIconProps = {
-  label?: string;
+  label?: number;
 }
 
 const ICON_SIZE = "48px";

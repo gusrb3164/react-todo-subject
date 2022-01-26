@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FilterContext } from '../../App';
 import CheckedIcon from '../Icon/CheckedIcon';
 import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import { FilterModalContainer } from './styles';
@@ -8,18 +9,20 @@ type FilterModalProps = {
 }
 
 function FilterModal({ setFilterModalVisible }: FilterModalProps) {
+  const { filter, handleFilter } = useContext(FilterContext);
+
   return (
     <FilterModalContainer>
-      <button>
-        <CheckedIcon />
+      <button onClick={() => handleFilter('all')}>
+        {filter === 'all' ? <CheckedIcon /> : <UnCheckedIcon />}
         <p>Show All</p>
       </button>
-      <button>
-        <UnCheckedIcon />
+      <button onClick={() => handleFilter('active')}>
+        {filter === 'active' ? <CheckedIcon /> : <UnCheckedIcon />}
         <p>Show Active</p>
       </button>
-      <button>
-        <UnCheckedIcon />
+      <button onClick={() => handleFilter('completed')}>
+        {filter === 'completed' ? <CheckedIcon /> : <UnCheckedIcon />}
         <p>Show Completed</p>
       </button>
       <button onClick={() => setFilterModalVisible(false)}>

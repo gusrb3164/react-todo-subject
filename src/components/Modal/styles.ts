@@ -20,7 +20,7 @@ export const FilterModalContainer = styled.dialog`
     border: none;
     p {
       margin-left: 0.5rem;
-      font-size: 1.375rem;
+      font-size: 1.125rem;
     }
   }
   button:last-child {
@@ -32,7 +32,7 @@ export const FilterModalContainer = styled.dialog`
   }
 `;
 
-export const AddModalContainer = styled.dialog`
+export const AddModalContainer = styled.dialog<{ label: number }>`
   top: 4rem;
   width: 100%;
   padding: 1rem 0;

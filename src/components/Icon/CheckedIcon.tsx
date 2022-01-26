@@ -3,7 +3,7 @@ import getIconColor from '../../utils/getIconColor';
 import { CheckedIconContainer } from './styles';
 
 type CheckedIconProps = {
-  label?: string;
+  label?: number;
 }
 
 const ICON_SIZE = "48px";

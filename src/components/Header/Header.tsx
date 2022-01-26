@@ -16,15 +16,23 @@ function Header({
   addModalVisible,
   setFilterModalVisible,
   setAddModalVisible }: HeaderProps): JSX.Element {
+  function onClickFilterIcon() {
+    setAddModalVisible(false);
+    setFilterModalVisible(true);
+  }
+  function onClickAddIcon() {
+    setFilterModalVisible(false);
+    setAddModalVisible(true);
+  }
   
   return (
     <HeaderContainer>
       <Logo />
       <div>
-        <button className="modalButton" onClick={() => setFilterModalVisible(true)}>
+        <button className="modalButton" onClick={onClickFilterIcon}>
           <FilterIcon isClicked={filterModalVisible} />
         </button>
-        <button className="modalButton" onClick={() => setAddModalVisible(true)}>
+        <button className="modalButton" onClick={onClickAddIcon}>
           <AddIcon isClicked={addModalVisible} />
         </button>
       </div>

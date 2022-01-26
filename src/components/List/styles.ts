@@ -52,4 +52,8 @@ export const TodoListItemContainer = styled.li<{ completed: boolean }>`
       }
     }
   }
+  button {
+    border: none;
+    background-color: #FFFFFF;
+  }
 `;

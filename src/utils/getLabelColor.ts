@@ -1,4 +1,4 @@
-export default function getIconColor(label?: number): string {
+export default function getLabelColor(label?: number): string {
   switch(label) {
     case 1:
       return "#F7C978";
@@ -7,6 +7,6 @@ export default function getIconColor(label?: number): string {
     case 3:
       return "#A6C0FE";
     default:
-      return "#000000";
+      return "#FFFFFF";
   }
 }
