@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-export const MainLayoutContainer = styled.div`
+export const MainLayoutContainer = styled.div<{ bgColor: string }>`
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: ${props => props.bgColor};
 `;
 
 export const ContentsContainer = styled.main`

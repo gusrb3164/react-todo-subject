@@ -5,6 +5,8 @@ import { HeaderContainer } from './styles';
 import AddIcon from '../Icon/AddIcon';
 
 type HeaderProps = {
+  bgColor: string;
+  setBgColor: (bgColor: string) => void;
   filterModalVisible: boolean;
   addModalVisible: boolean;
   setFilterModalVisible: (filterModalVisible: boolean) => void;
@@ -12,6 +14,8 @@ type HeaderProps = {
 }
 
 function Header({
+  bgColor,
+  setBgColor,
   filterModalVisible,
   addModalVisible,
   setFilterModalVisible,
@@ -27,7 +31,10 @@ function Header({
   
   return (
     <HeaderContainer>
-      <Logo />
+      <Logo
+        bgColor={bgColor}
+        setBgColor={setBgColor}
+      />
       <div>
         <button className="modalButton" onClick={onClickFilterIcon}>
           <FilterIcon isClicked={filterModalVisible} />

@@ -10,11 +10,14 @@ import AddModal from '../../components/Modal/AddModal';
 function MainPage(): JSX.Element {
   const [filterModalVisible, setFilterModalVisible] = useState(false);
   const [addModalVisible, setAddModalVisible] = useState(false);
+  const [bgColor, setBgColor] = useState("#FFFFFF");
 
   return (
-    <MainLayoutContainer>
+    <MainLayoutContainer bgColor={bgColor}>
       <div>
         <Header
+          bgColor={bgColor}
+          setBgColor={setBgColor}
           filterModalVisible={filterModalVisible}
           addModalVisible={addModalVisible}
           setFilterModalVisible={setFilterModalVisible}
