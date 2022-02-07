@@ -1,5 +1,6 @@
 import React, { useState, createContext } from 'react';
 import './App.scss';
+import GlobalStyle from "./GlobalStyle";
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/Main/MainPage';
 
@@ -57,6 +58,7 @@ function App(): JSX.Element {
   return (
     <FilterContext.Provider value={{ filter, handleFilter }}>
       <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateStatus }}>
+        <GlobalStyle />
         <Routes>
           <Route path="/" element={<MainPage />} />
         </Routes>

@@ -9,7 +9,8 @@ export const LogoContainer = styled.div`
     margin-right: 0.25rem;
   }
   div {
-    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+    margin-right: 0.225rem;
     margin-bottom: 0.375rem;
     position: relative;
     display: inline-block;
