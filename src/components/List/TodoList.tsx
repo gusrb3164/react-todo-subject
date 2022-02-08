@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useContext } from 'react';
-import { FilterContext } from '../../App';
-import { TodoContext } from '../../App';
+import FilterContext from '../../context/FilterContext';
+import TodoContext from '../../context/TodoContext';
 import TodoListItem from './TodoListItem';
 import { TodoListContainer } from './styles';
 

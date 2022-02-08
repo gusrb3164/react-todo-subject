@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
-import { FilterContext } from '../../App';
+import FilterContext from '../../context/FilterContext';
 import CheckedIcon from '../Icon/CheckedIcon';
 import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import { FilterModalContainer } from './styles';
+import UIContext from '../../context/UIContext';
 
-type FilterModalProps = {
-  setFilterModalVisible: (visible: boolean) => void;
-}
-
-function FilterModal({ setFilterModalVisible }: FilterModalProps) {
+function FilterModal(): JSX.Element {
   const { filter, handleFilter } = useContext(FilterContext);
+  const { handleFilterModalVisible } = useContext(UIContext);
 
   return (
     <FilterModalContainer>
@@ -25,7 +23,7 @@ function FilterModal({ setFilterModalVisible }: FilterModalProps) {
         {filter === 'completed' ? <CheckedIcon /> : <UnCheckedIcon />}
         <p>Show Completed</p>
       </button>
-      <button onClick={() => setFilterModalVisible(false)}>
+      <button onClick={() => handleFilterModalVisible(false)}>
         Apply
       </button>
     </FilterModalContainer>

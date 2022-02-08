@@ -1,40 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../Logo/Logo';
 import FilterIcon from '../Icon/FilterIcon';
 import { HeaderContainer } from './styles';
 import AddIcon from '../Icon/AddIcon';
+import UIContext from '../../context/UIContext';
 
-type HeaderProps = {
-  bgColor: string;
-  setBgColor: (bgColor: string) => void;
-  filterModalVisible: boolean;
-  addModalVisible: boolean;
-  setFilterModalVisible: (filterModalVisible: boolean) => void;
-  setAddModalVisible: (addModalVisible: boolean) => void;
-}
+function Header(): JSX.Element {
+  const {
+    filterModalVisible,
+    addModalVisible,
+    handleFilterModalVisible,
+    handleAddModalVisible } = useContext(UIContext);
 
-function Header({
-  bgColor,
-  setBgColor,
-  filterModalVisible,
-  addModalVisible,
-  setFilterModalVisible,
-  setAddModalVisible }: HeaderProps): JSX.Element {
   function onClickFilterIcon() {
-    setAddModalVisible(false);
-    setFilterModalVisible(true);
+    handleAddModalVisible(false);
+    handleFilterModalVisible(true);
   }
+
   function onClickAddIcon() {
-    setFilterModalVisible(false);
-    setAddModalVisible(true);
+    handleFilterModalVisible(false);
+    handleAddModalVisible(true);
   }
   
   return (
     <HeaderContainer>
-      <Logo
-        bgColor={bgColor}
-        setBgColor={setBgColor}
-      />
+      <Logo />
       <div>
         <button className="modalButton" onClick={onClickFilterIcon}>
           <FilterIcon isClicked={filterModalVisible} />

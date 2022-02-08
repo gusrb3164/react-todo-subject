@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TodoContext } from '../../App';
+import TodoContext from '../../context/TodoContext';
 import CheckedIcon from '../Icon/CheckedIcon';
 import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import DeleteIcon from '../Icon/DeleteIcon';

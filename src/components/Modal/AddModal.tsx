@@ -1,17 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { TodoContext } from '../../App';
+import TodoContext from '../../context/TodoContext';
 import dayjs from 'dayjs';
 import { AddModalContainer } from './styles';
+import UIContext from '../../context/UIContext';
 
-type AddModalProps = {
-  setAddModalVisible: (visible: boolean) => void;
-}
-
-function AddModal({ setAddModalVisible }: AddModalProps) {
+function AddModal(): JSX.Element {
   const [tody, setTody] = useState('');
   const [label, setLabel] = useState(0);
 
   const { addTodo } = useContext(TodoContext);
+  const { handleAddModalVisible } = useContext(UIContext);
 
   function onClickAdd() {
     if (tody.length === 0) alert('Enter your Tody!');
@@ -24,7 +22,7 @@ function AddModal({ setAddModalVisible }: AddModalProps) {
         completed: false,
         createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
       })
-      setAddModalVisible(false);
+      handleAddModalVisible(false);
     }
   }
 

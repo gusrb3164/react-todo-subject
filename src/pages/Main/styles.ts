@@ -5,12 +5,12 @@ export const MainLayoutContainer = styled.div<{ bgColor: string }>`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   background-color: ${props => props.bgColor};
 `;
 
 export const ContentsContainer = styled.main`
   padding: 0 1rem;
+  margin-bottom: auto;
   section {
     margin-top: 2.5rem;
     display: flex;
