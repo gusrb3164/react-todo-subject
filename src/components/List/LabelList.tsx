@@ -1,13 +1,14 @@
 import React from 'react';
 import LabelListItem from './LabelListItem';
+import { THEME_YELLOW, THEME_RED, THEME_BLUE } from '../../utils/GlobalStyle';
 import { LabelListContainer } from './styles';
 
 function LabelList(): JSX.Element {
   return (
     <LabelListContainer>
-      <LabelListItem id={1} title="Need" color="#F7C978" />
-      <LabelListItem id={2} title="Want" color="#F68B7D" />
-      <LabelListItem id={3} title="Routine" color="#A6C0FE" />
+      <LabelListItem id={1} title="Need" color={THEME_YELLOW} />
+      <LabelListItem id={2} title="Want" color={THEME_RED} />
+      <LabelListItem id={3} title="Routine" color={THEME_BLUE} />
     </LabelListContainer>
   )
 }

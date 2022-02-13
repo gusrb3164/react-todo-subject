@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { THEME_GRAY } from '../../utils/GlobalStyle';
 
 export const FooterContainer = styled.footer`
   height: 2.25rem;
@@ -7,7 +8,7 @@ export const FooterContainer = styled.footer`
   justify-content: center;
   a {
     font-size: 1rem;
-    color: #696969;
+    color: ${THEME_GRAY};
     text-decoration: none;
   }
 `;

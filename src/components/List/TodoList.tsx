@@ -2,15 +2,8 @@ import React, { useEffect, useLayoutEffect, useContext } from 'react';
 import FilterContext from '../../context/FilterContext';
 import TodoContext from '../../context/TodoContext';
 import TodoListItem from './TodoListItem';
+import { TodoType } from '../../types';
 import { TodoListContainer } from './styles';
-
-type TodoType = {
-  id: number,
-  label: number,
-  text: string,
-  completed: boolean,
-  createdAt: string,
-}
 
 function TodoList(): JSX.Element {
   const { filter } = useContext(FilterContext);
@@ -41,26 +34,33 @@ function TodoList(): JSX.Element {
   return (
     <TodoListContainer>
       {filter === 'all' ?
-        todos.sort((a,b) => a.id - b.id).sort((a,b) => a.label - b.label).map(item => (
-          <TodoListItem
-            key={item.id}
-            id={item.id}
-            label={item.label}
-            text={item.text}
-            completed={item.completed}
-            createdAt={item.createdAt}
-          />
-        )) :
-        todos.filter(item => filter === 'active' ? !item.completed : item.completed).sort((a,b) => a.id - b.id).sort((a,b) => a.label - b.label).map(item => (
-          <TodoListItem
-            key={item.id}
-            id={item.id}
-            label={item.label}
-            text={item.text}
-            completed={item.completed}
-            createdAt={item.createdAt}
-          />
-        ))
+        todos
+          .sort((a,b) => a.id - b.id)
+          .sort((a,b) => a.label - b.label)
+          .map(item => (
+            <TodoListItem
+              key={item.id}
+              id={item.id}
+              label={item.label}
+              text={item.text}
+              completed={item.completed}
+              createdAt={item.createdAt}
+            />
+          )) :
+        todos
+          .filter(item => filter === 'active' ? !item.completed : item.completed)
+          .sort((a,b) => a.id - b.id)
+          .sort((a,b) => a.label - b.label)
+          .map(item => (
+            <TodoListItem
+              key={item.id}
+              id={item.id}
+              label={item.label}
+              text={item.text}
+              completed={item.completed}
+              createdAt={item.createdAt}
+            />
+          ))
       }
     </TodoListContainer>
   )

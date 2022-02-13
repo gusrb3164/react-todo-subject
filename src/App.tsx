@@ -5,7 +5,7 @@ import FilterProvider from './context/FilterProvider';
 import TodoProvider from './context/TodoProvider';
 import UIProvider from './context/UIProvider';
 import './App.scss';
-import GlobalStyle from "./utils/GlobalStyle";
+import { GlobalStyle } from "./utils/GlobalStyle";
 
 function App(): JSX.Element {
   return (

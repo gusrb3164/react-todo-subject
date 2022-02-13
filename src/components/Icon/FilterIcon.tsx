@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UIContext from '../../context/UIContext';
+import { THEME_RED, THEME_BLACK } from '../../utils/GlobalStyle';
 import { FilterIconContainer } from './styles';
 
 const ICON_SIZE = "32px";
 
-type FilterIconProps = {
-  isClicked: boolean;
-}
+function FilterIcon(): JSX.Element {
+  const { filterModalVisible } = useContext(UIContext);
 
-function FilterIcon({ isClicked }: FilterIconProps ) {
   return (
     <FilterIconContainer
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ function FilterIcon({ isClicked }: FilterIconProps ) {
       height={ICON_SIZE}
       viewBox="0 0 24 24"
       width={ICON_SIZE}
-      fill={isClicked ? "#F68B7D" : "#000000"}
+      fill={filterModalVisible ? THEME_RED : THEME_BLACK}
     ><g>
       <path
         d="M0,0h24 M24,24H0"

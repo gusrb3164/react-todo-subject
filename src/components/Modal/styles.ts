@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { THEME_RED, THEME_WHITE, THEME_LIGHT_GRAY, THEME_GRAY } from '../../utils/GlobalStyle';
 
 export const FilterModalContainer = styled.dialog`
   top: 4rem;
@@ -8,7 +9,7 @@ export const FilterModalContainer = styled.dialog`
   flex-direction: column;
   align-items: center;
   border: none;
-  background-color: #FFFFFF;
+  background-color: ${THEME_WHITE};
   box-shadow: 0px 8px 4px 2px rgba(0, 0, 0, 0.2);
   button:not(:last-child) {
     width: 100%;
@@ -26,7 +27,7 @@ export const FilterModalContainer = styled.dialog`
   button:last-child {
     margin: 1rem;
     font-size: 1.5rem;
-    color: #F68B7D;
+    color: ${THEME_RED};
     background: none;
     border: none;
   }
@@ -40,18 +41,18 @@ export const AddModalContainer = styled.dialog<{ label: number }>`
   flex-direction: column;
   align-items: center;
   border: none;
-  background-color: #FFFFFF;
+  background-color: ${THEME_WHITE};
   box-shadow: 0px 8px 4px 2px rgba(0, 0, 0, 0.2);
   input {
     padding-bottom: 0.5rem;
     width: 80%;
     border: none;
     border-bottom: 1px solid black;
-    background-color: #FFFFFF;
+    background-color: ${THEME_WHITE};
     font-size: 1rem;
   }
   input::placeholder {
-    color: #AEAEAE;
+    color: ${THEME_LIGHT_GRAY};
   }
   input:focus {
     outline: none;
@@ -66,19 +67,19 @@ export const AddModalContainer = styled.dialog<{ label: number }>`
       button {
         width: 5rem;
         height: 2rem;
-        background-color: #FFFFFF;
+        background-color: ${THEME_WHITE};
         border: 2px solid;
         border-radius: 0.75rem;
         font-size: 1rem;
-        color: #696969;
+        color: ${THEME_GRAY};
       }
     }
   }
   button {
     margin: 1rem 0;
-    background-color: #FFFFFF;
+    background-color: ${THEME_WHITE};
     border: none;
     font-size: 1.5rem;
-    color: #F68B7D;
+    color: ${THEME_RED};
   }
 `;

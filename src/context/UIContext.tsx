@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { THEME_WHITE } from '../utils/GlobalStyle';
 
 type UIContextType = {
   filterModalVisible: boolean;
@@ -12,7 +13,7 @@ type UIContextType = {
 const defaultState = {
   filterModalVisible: false,
   addModalVisible: false,
-  bgColor: '#FFFFFF',
+  bgColor: THEME_WHITE,
   handleFilterModalVisible: () => {},
   handleAddModalVisible: () => {},
   handleBgColor: () => {},

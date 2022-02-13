@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import Logo from '../Logo/Logo';
 import FilterIcon from '../Icon/FilterIcon';
-import { HeaderContainer } from './styles';
 import AddIcon from '../Icon/AddIcon';
 import UIContext from '../../context/UIContext';
+import { HeaderContainer } from './styles';
 
 function Header(): JSX.Element {
   const {
-    filterModalVisible,
-    addModalVisible,
     handleFilterModalVisible,
     handleAddModalVisible } = useContext(UIContext);
 
@@ -27,10 +25,10 @@ function Header(): JSX.Element {
       <Logo />
       <div>
         <button className="modalButton" onClick={onClickFilterIcon}>
-          <FilterIcon isClicked={filterModalVisible} />
+          <FilterIcon />
         </button>
         <button className="modalButton" onClick={onClickAddIcon}>
-          <AddIcon isClicked={addModalVisible} />
+          <AddIcon />
         </button>
       </div>
     </HeaderContainer>

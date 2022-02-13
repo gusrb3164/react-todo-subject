@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import FilterContext from '../../context/FilterContext';
+import UIContext from '../../context/UIContext';
 import CheckedIcon from '../Icon/CheckedIcon';
 import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import { FilterModalContainer } from './styles';
-import UIContext from '../../context/UIContext';
 
 function FilterModal(): JSX.Element {
   const { filter, handleFilter } = useContext(FilterContext);

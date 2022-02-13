@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import TodoContext from '../../context/TodoContext';
 import dayjs from 'dayjs';
-import { AddModalContainer } from './styles';
+import TodoContext from '../../context/TodoContext';
 import UIContext from '../../context/UIContext';
+import { AddModalContainer } from './styles';
 
 function AddModal(): JSX.Element {
   const [tody, setTody] = useState('');
@@ -21,7 +21,7 @@ function AddModal(): JSX.Element {
         text: tody,
         completed: false,
         createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-      })
+      });
       handleAddModalVisible(false);
     }
   }

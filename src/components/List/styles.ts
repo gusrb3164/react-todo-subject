@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { THEME_WHITE, THEME_GRAY, THEME_DARK_GRAY, THEME_LIGHT_BLACK } from '../../utils/GlobalStyle';
 
 export const LabelListContainer = styled.ol`
   display: flex;
@@ -16,7 +17,7 @@ export const LabelListItemContainer = styled.li<{ color: string }>`
   background-color: ${props => props.color};
   opacity: 0.5;
   font-size: 1rem;
-  color: #232323;
+  color: ${THEME_LIGHT_BLACK};
 `;
 
 export const TodoListContainer = styled.ol`
@@ -40,7 +41,7 @@ export const TodoListItemContainer = styled.li<{ completed: boolean }>`
       h3 {
         width: 16rem;
         font-size: 1.125rem;
-        color: #444444;
+        color: ${THEME_DARK_GRAY};
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -48,12 +49,12 @@ export const TodoListItemContainer = styled.li<{ completed: boolean }>`
       }
       p {
         font-size: 0.875rem;
-        color: #696969;
+        color: ${THEME_GRAY};
       }
     }
   }
   button {
     border: none;
-    background-color: #FFFFFF;
+    background-color: ${THEME_WHITE};
   }
 `;
