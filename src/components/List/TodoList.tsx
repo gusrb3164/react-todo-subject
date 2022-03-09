@@ -24,8 +24,7 @@ function TodoList(): JSX.Element {
         ))
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [todos,addTodo]);
 
   useEffect(() => {
     localStorage.setItem('localTodos', JSON.stringify(todos));
