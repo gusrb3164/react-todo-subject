@@ -21,7 +21,7 @@ export const LabelListItemContainer = styled.li<{ color: string }>`
 `;
 
 export const TodoListContainer = styled.ol`
-
+  width: 100%;
 `;
 
 export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: string }>`
@@ -33,13 +33,16 @@ export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: st
   div {
     display: flex;
     flex-direction: row;
+    button {
+      padding: 0;
+    }
     div {
       margin-left: 0.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       h3 {
-        width: 16rem;
+        width: 60vw;
         font-size: 1.125rem;
         color: ${THEME_DARK_GRAY};
         overflow: hidden;
