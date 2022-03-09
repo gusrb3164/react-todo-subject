@@ -5,6 +5,7 @@ import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import DeleteIcon from '../Icon/DeleteIcon';
 import { TodoType } from '../../types';
 import { TodoListItemContainer } from './styles';
+import UIContext from '../../context/UIContext';
 
 function TodoListItem({
   id,
@@ -13,11 +14,13 @@ function TodoListItem({
   completed,
   createdAt }: TodoType): JSX.Element {
   const { deleteTodo, updateStatus } = useContext(TodoContext);
+  const { bgColor } = useContext(UIContext)
 
   return (
     <TodoListItemContainer
       key={id}
       completed={completed}
+      bgColor={bgColor}
     >
       <div>
         <button onClick={() => updateStatus(id)}>

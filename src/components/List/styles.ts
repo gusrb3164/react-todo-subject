@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { THEME_WHITE, THEME_GRAY, THEME_DARK_GRAY, THEME_LIGHT_BLACK } from '../../utils/GlobalStyle';
+import { THEME_GRAY, THEME_DARK_GRAY, THEME_LIGHT_BLACK } from '../../utils/GlobalStyle';
 
 export const LabelListContainer = styled.ol`
   display: flex;
@@ -24,7 +24,7 @@ export const TodoListContainer = styled.ol`
 
 `;
 
-export const TodoListItemContainer = styled.li<{ completed: boolean }>`
+export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: string }>`
   margin-bottom: 1.75rem;
   display: flex;
   flex-direction: row;
@@ -55,6 +55,6 @@ export const TodoListItemContainer = styled.li<{ completed: boolean }>`
   }
   button {
     border: none;
-    background-color: ${THEME_WHITE};
+    background-color: ${(props) => props.bgColor};
   }
 `;

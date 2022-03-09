@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { THEME_RED, THEME_WHITE, THEME_LIGHT_GRAY, THEME_GRAY } from '../../utils/GlobalStyle';
+import { THEME_RED, THEME_LIGHT_GRAY, THEME_GRAY } from '../../utils/GlobalStyle';
 
-export const FilterModalContainer = styled.dialog`
+export const FilterModalContainer = styled.dialog<{ bgColor: string }>`
   top: 4rem;
   width: 100%;
   padding: 1rem 0;
@@ -9,7 +9,7 @@ export const FilterModalContainer = styled.dialog`
   flex-direction: column;
   align-items: center;
   border: none;
-  background-color: ${THEME_WHITE};
+  background-color: ${props => props.bgColor};
   box-shadow: 0px 8px 4px 2px rgba(0, 0, 0, 0.2);
   button:not(:last-child) {
     width: 100%;
@@ -33,7 +33,7 @@ export const FilterModalContainer = styled.dialog`
   }
 `;
 
-export const AddModalContainer = styled.dialog<{ label: number }>`
+export const AddModalContainer = styled.dialog<{ label: number, bgColor: string }>`
   top: 4rem;
   width: 100%;
   padding: 1rem 0;
@@ -41,14 +41,14 @@ export const AddModalContainer = styled.dialog<{ label: number }>`
   flex-direction: column;
   align-items: center;
   border: none;
-  background-color: ${THEME_WHITE};
+  background-color: ${props => props.bgColor};
   box-shadow: 0px 8px 4px 2px rgba(0, 0, 0, 0.2);
   input {
     padding-bottom: 0.5rem;
     width: 80%;
     border: none;
     border-bottom: 1px solid black;
-    background-color: ${THEME_WHITE};
+    background-color: ${props => props.bgColor};
     font-size: 1rem;
   }
   input::placeholder {
@@ -67,7 +67,7 @@ export const AddModalContainer = styled.dialog<{ label: number }>`
       button {
         width: 5rem;
         height: 2rem;
-        background-color: ${THEME_WHITE};
+        background-color: ${props => props.bgColor};
         border: 2px solid;
         border-radius: 0.75rem;
         font-size: 1rem;
@@ -77,7 +77,7 @@ export const AddModalContainer = styled.dialog<{ label: number }>`
   }
   button {
     margin: 1rem 0;
-    background-color: ${THEME_WHITE};
+    background-color: ${props => props.bgColor};
     border: none;
     font-size: 1.5rem;
     color: ${THEME_RED};

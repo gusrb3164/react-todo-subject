@@ -7,10 +7,10 @@ import { FilterModalContainer } from './styles';
 
 function FilterModal(): JSX.Element {
   const { filter, handleFilter } = useContext(FilterContext);
-  const { handleFilterModalVisible } = useContext(UIContext);
+  const { bgColor, handleFilterModalVisible } = useContext(UIContext);
 
   return (
-    <FilterModalContainer>
+    <FilterModalContainer bgColor={bgColor}>
       <button onClick={() => handleFilter('all')}>
         {filter === 'all' ? <CheckedIcon /> : <UnCheckedIcon />}
         <p>Show All</p>
