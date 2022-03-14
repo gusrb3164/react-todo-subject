@@ -6,22 +6,14 @@ type UIProviderProps = {
   children: React.ReactNode;
 }
 
-function UIProvider({ children }: UIProviderProps) {
+const UIProvider: React.FC<UIProviderProps> = ({ children }) => {
   const [filterModalVisible, setFilterModalVisible] = useState<boolean>(false);
   const [addModalVisible, setAddModalVisible] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>(THEME_WHITE);
 
-  function handleFilterModalVisible(filterModalVisible: boolean) {
-    setFilterModalVisible(filterModalVisible);
-  }
-
-  function handleAddModalVisible(addModalVisible: boolean) {
-    setAddModalVisible(addModalVisible);
-  }
-
-  function handleBgColor(bgColor: string) {
-    setBgColor(bgColor);
-  }
+  const handleFilterModalVisible = (filterModalVisible: boolean): void => setFilterModalVisible(filterModalVisible);
+  const handleAddModalVisible = (addModalVisible: boolean): void => setAddModalVisible(addModalVisible);
+  const handleBgColor = (bgColor: string): void => setBgColor(bgColor);
 
   return (
     <UIContext.Provider

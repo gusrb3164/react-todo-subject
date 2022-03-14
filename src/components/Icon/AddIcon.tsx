@@ -5,7 +5,7 @@ import { AddIconContainer } from './styles';
 
 const ICON_SIZE = "32px";
 
-function AddIcon(): JSX.Element {
+const AddIcon: React.VFC = () => {
   const { addModalVisible } = useContext(UIContext);
 
   return (

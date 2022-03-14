@@ -5,12 +5,10 @@ type FilterProviderProps = {
   children: React.ReactNode;
 }
 
-function FilterProvider({ children }: FilterProviderProps) {
+const FilterProvider: React.FC<FilterProviderProps> = ({ children }) => {
   const [filter, setFilter] = useState<string>('all');
 
-  function handleFilter(filter: string) {
-    setFilter(filter);
-  }
+  const handleFilter = (filter: string): void => setFilter(filter);
 
   return (
     <FilterContext.Provider value={{ filter, handleFilter }}>

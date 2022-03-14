@@ -1,7 +1,7 @@
 import React from 'react';
 import { FooterContainer } from './styles';
 
-function Footer() {
+const Footer: React.VFC = () => {
   return (
     <FooterContainer>
       <a href="https://github.com/donghoonKang-dev">© 2022 donghoonKang-dev</a>

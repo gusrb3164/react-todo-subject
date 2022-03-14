@@ -5,7 +5,7 @@ import TodoListItem from './TodoListItem';
 import { TodoType } from '../../types';
 import { TodoListContainer } from './styles';
 
-function TodoList(): JSX.Element {
+const TodoList: React.VFC = () => {
   const { filter } = useContext(FilterContext);
   const { todos, addTodo } = useContext(TodoContext);
 

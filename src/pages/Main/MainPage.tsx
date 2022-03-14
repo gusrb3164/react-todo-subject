@@ -8,7 +8,7 @@ import FilterModal from '../../components/Modal/FilterModal';
 import AddModal from '../../components/Modal/AddModal';
 import { MainLayoutContainer, ContentsContainer } from './styles';
 
-function MainPage(): JSX.Element {
+const MainPage: React.VFC = () => {
   const {
     bgColor,
     filterModalVisible,

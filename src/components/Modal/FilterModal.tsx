@@ -5,7 +5,7 @@ import CheckedIcon from '../Icon/CheckedIcon';
 import UnCheckedIcon from '../Icon/UnCheckedIcon';
 import { FilterModalContainer } from './styles';
 
-function FilterModal(): JSX.Element {
+const FilterModal: React.VFC = () => {
   const { filter, handleFilter } = useContext(FilterContext);
   const { bgColor, handleFilterModalVisible } = useContext(UIContext);
 

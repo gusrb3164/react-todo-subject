@@ -7,12 +7,12 @@ import { TodoType } from '../../types';
 import { TodoListItemContainer } from './styles';
 import UIContext from '../../context/UIContext';
 
-function TodoListItem({
+const TodoListItem: React.VFC<TodoType> = ({
   id,
   label,
   text,
   completed,
-  createdAt }: TodoType): JSX.Element {
+  createdAt }) => {
   const { deleteTodo, updateStatus } = useContext(TodoContext);
   const { bgColor } = useContext(UIContext)
 

@@ -3,7 +3,7 @@ import { LogoContainer } from './styles';
 import UIContext from '../../context/UIContext';
 import { debounce } from 'lodash';
 
-function Logo(): JSX.Element {
+const Logo: React.VFC = () => {
   const { bgColor, handleBgColor } = useContext(UIContext);
 
   const [color, setColor] = useState(bgColor);

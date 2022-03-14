@@ -5,7 +5,7 @@ import { FilterIconContainer } from './styles';
 
 const ICON_SIZE = "32px";
 
-function FilterIcon(): JSX.Element {
+const FilterIcon: React.VFC = () => {
   const { filterModalVisible } = useContext(UIContext);
 
   return (

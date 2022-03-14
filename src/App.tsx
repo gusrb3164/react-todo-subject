@@ -7,7 +7,7 @@ import UIProvider from './context/UIProvider';
 import './App.scss';
 import { GlobalStyle } from "./utils/GlobalStyle";
 
-function App(): JSX.Element {
+const App: React.VFC = () => {
   return (
     <FilterProvider>
       <TodoProvider>

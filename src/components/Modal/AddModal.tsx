@@ -6,14 +6,14 @@ import { LabelType } from '../../types';
 import { AddModalContainer } from './styles';
 import { THEME_BLUE, THEME_GRAY, THEME_RED, THEME_WHITE, THEME_YELLOW } from '../../utils/GlobalStyle';
 
-function AddModal(): JSX.Element {
+const AddModal: React.VFC = () => {
   const { addTodo } = useContext(TodoContext);
   const { bgColor, handleAddModalVisible } = useContext(UIContext);
 
   const [tody, setTody] = useState('');
   const [label, setLabel] = useState<LabelType>({ id: 1, name: 'Need' });
 
-  function onClickAdd() {
+  const onClickAdd = () => {
     if (tody.length === 0) alert('Enter your Tody!');
     else {
       addTodo({

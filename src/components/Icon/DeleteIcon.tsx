@@ -4,7 +4,7 @@ import { DeleteIconContainer } from './styles';
 
 const ICON_SIZE = "24px";
 
-function DeleteIcon(): JSX.Element {
+const DeleteIcon: React.VFC = () => {
   return (
     <DeleteIconContainer
       xmlns="http://www.w3.org/2000/svg"

@@ -5,17 +5,17 @@ import AddIcon from '../Icon/AddIcon';
 import UIContext from '../../context/UIContext';
 import { HeaderContainer } from './styles';
 
-function Header(): JSX.Element {
+const Header: React.VFC = () => {
   const {
     handleFilterModalVisible,
     handleAddModalVisible } = useContext(UIContext);
 
-  function onClickFilterIcon() {
+  const onClickFilterIcon = () => {
     handleAddModalVisible(false);
     handleFilterModalVisible(true);
   }
 
-  function onClickAddIcon() {
+  const onClickAddIcon = () => {
     handleFilterModalVisible(false);
     handleAddModalVisible(true);
   }
