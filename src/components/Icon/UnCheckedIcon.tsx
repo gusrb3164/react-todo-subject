@@ -1,14 +1,15 @@
 import React from 'react';
-import getIconColor from '../../utils/getIconColor';
+import getColor from '../../utils/getColor';
+import { LabelType } from '../../types';
 import { UnCheckedIconContainer } from './styles';
-
-type UnCheckedIconProps = {
-  label?: number;
-}
 
 const ICON_SIZE = "48px";
 
-function UnCheckedIcon({ label }: UnCheckedIconProps): JSX.Element {
+interface UnCheckedIconProps {
+  label?: LabelType
+};
+
+const UnCheckedIcon: React.VFC<UnCheckedIconProps> = ({label}) => {
   return (
     <UnCheckedIconContainer
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +17,7 @@ function UnCheckedIcon({ label }: UnCheckedIconProps): JSX.Element {
       height={ICON_SIZE}
       viewBox="0 0 24 24"
       width={ICON_SIZE}
-      fill={getIconColor(label)}
+      fill={getColor(true, label)}
     >
       <g>
         <rect fill="none" height="24" width="24"/>

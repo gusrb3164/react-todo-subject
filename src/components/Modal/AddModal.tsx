@@ -2,18 +2,19 @@ import React, { useState, useContext } from 'react';
 import dayjs from 'dayjs';
 import TodoContext from '../../context/TodoContext';
 import UIContext from '../../context/UIContext';
+import { LabelType } from '../../types';
 import { AddModalContainer } from './styles';
+import { THEME_BLUE, THEME_GRAY, THEME_RED, THEME_WHITE, THEME_YELLOW } from '../../utils/GlobalStyle';
 
 function AddModal(): JSX.Element {
-  const [tody, setTody] = useState('');
-  const [label, setLabel] = useState(0);
-
   const { addTodo } = useContext(TodoContext);
   const { bgColor, handleAddModalVisible } = useContext(UIContext);
 
+  const [tody, setTody] = useState('');
+  const [label, setLabel] = useState<LabelType>({ id: 1, name: 'Need' });
+
   function onClickAdd() {
     if (tody.length === 0) alert('Enter your Tody!');
-    else if (label === 0) alert('Select label!');
     else {
       addTodo({
         id: dayjs().valueOf(),
@@ -27,7 +28,7 @@ function AddModal(): JSX.Element {
   }
 
   return (
-    <AddModalContainer label={label} bgColor={bgColor}>
+    <AddModalContainer bgColor={bgColor}>
       <input
         type="text"
         placeholder="Enter new TODY"
@@ -38,11 +39,11 @@ function AddModal(): JSX.Element {
         <li>
           <button
             style={{
-              borderColor: '#F7C978',
-              backgroundColor: label === 1 ? '#F7C978' : bgColor,
-              color: label === 1 ? '#FFFFFF' : '#696969'
+              borderColor: THEME_YELLOW,
+              backgroundColor: label.name === 'Need' ? THEME_YELLOW : bgColor,
+              color: label.name === 'Need' ? THEME_WHITE : THEME_GRAY
             }}
-            onClick={() => setLabel(1)}
+            onClick={() => setLabel({ id: 1, name: 'Need' })}
           >
             Need
           </button>
@@ -50,11 +51,11 @@ function AddModal(): JSX.Element {
         <li>
           <button
             style={{
-              borderColor: '#F68B7D',
-              backgroundColor: label === 2 ? '#F68B7D' : bgColor,
-              color: label === 2 ? '#FFFFFF' : '#696969'
+              borderColor: THEME_RED,
+              backgroundColor: label.name === 'Want' ? THEME_RED : bgColor,
+              color: label.name === 'Want' ? THEME_WHITE : THEME_GRAY
             }}
-            onClick={() => setLabel(2)}
+            onClick={() => setLabel({ id: 2, name: 'Want' })}
           >
             Want
           </button>
@@ -62,11 +63,11 @@ function AddModal(): JSX.Element {
         <li>
           <button
             style={{
-              borderColor: '#A6C0FE',
-              backgroundColor: label === 3 ? '#A6C0FE' : bgColor,
-              color: label === 3 ? '#FFFFFF' : '#696969'
+              borderColor: THEME_BLUE,
+              backgroundColor: label.name === 'Routine' ? THEME_BLUE : bgColor,
+              color: label.name === 'Routine' ? THEME_WHITE : THEME_GRAY
             }}
-            onClick={() => setLabel(3)}
+            onClick={() => setLabel({ id: 3, name: 'Routine' })}
           >
             Routine
           </button>

@@ -1,14 +1,13 @@
 import React from 'react';
 import LabelListItem from './LabelListItem';
-import { THEME_YELLOW, THEME_RED, THEME_BLUE } from '../../utils/GlobalStyle';
 import { LabelListContainer } from './styles';
 
-function LabelList(): JSX.Element {
+const LabelList: React.VFC = () => {
   return (
     <LabelListContainer>
-      <LabelListItem id={1} title="Need" color={THEME_YELLOW} />
-      <LabelListItem id={2} title="Want" color={THEME_RED} />
-      <LabelListItem id={3} title="Routine" color={THEME_BLUE} />
+      <LabelListItem label={{ id: 1, name: "Need" }} />
+      <LabelListItem label={{ id: 2, name: "Want" }} />
+      <LabelListItem label={{ id: 3, name: "Routine" }} />
     </LabelListContainer>
   )
 }

@@ -33,7 +33,7 @@ export const FilterModalContainer = styled.dialog<{ bgColor: string }>`
   }
 `;
 
-export const AddModalContainer = styled.dialog<{ label: number, bgColor: string }>`
+export const AddModalContainer = styled.dialog<{ bgColor: string }>`
   top: 4rem;
   width: 100%;
   padding: 1rem 0;

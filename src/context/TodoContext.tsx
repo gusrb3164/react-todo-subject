@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TodoType } from '../types';
+import { LabelType, TodoType } from '../types';
 
 type TodoContextType = {
   todos: TodoType[];
@@ -12,7 +12,10 @@ const defaultState = {
   todos: [
     {
       id: 0,
-      label: 1,
+      label: {
+        id: 1,
+        name: 'Need'
+      } as LabelType,
       text: '',
       completed: false,
       createdAt: '',

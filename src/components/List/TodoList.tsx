@@ -35,7 +35,7 @@ function TodoList(): JSX.Element {
       {filter === 'all' ?
         todos
           .sort((a,b) => a.id - b.id)
-          .sort((a,b) => a.label - b.label)
+          .sort((a,b) => a.label.id - b.label.id)
           .map(item => (
             <TodoListItem
               key={item.id}
@@ -48,8 +48,8 @@ function TodoList(): JSX.Element {
           )) :
         todos
           .filter(item => filter === 'active' ? !item.completed : item.completed)
+          .sort((a,b) => a.label.id - b.label.id)
           .sort((a,b) => a.id - b.id)
-          .sort((a,b) => a.label - b.label)
           .map(item => (
             <TodoListItem
               key={item.id}

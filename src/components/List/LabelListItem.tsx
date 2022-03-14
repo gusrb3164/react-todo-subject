@@ -1,16 +1,16 @@
 import React from 'react';
+import { LabelType } from '../../types';
+import getColor from '../../utils/getColor';
 import { LabelListItemContainer } from './styles';
 
-type LabelListItemProps = {
-  id: number;
-  title: string;
-  color: string;
-}
+interface LabelListItemProps {
+  label: LabelType
+};
 
-function LabelListItem({ id, title, color }: LabelListItemProps): JSX.Element {
+const LabelListItem: React.VFC<LabelListItemProps> = ({label}) => {
   return (
-    <LabelListItemContainer color={color}>
-      {title}
+    <LabelListItemContainer color={getColor(false, label)}>
+      {label.name as string}
     </LabelListItemContainer>
   )
 }
