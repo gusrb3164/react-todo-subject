@@ -30,18 +30,20 @@ export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: st
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  div {
+  > div {
     display: flex;
     flex-direction: row;
-    button {
+    > button {
       padding: 0;
+      border: none;
+      background-color: ${(props) => props.bgColor};
     }
-    div {
+    > div {
       margin-left: 0.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      h3 {
+      > h3 {
         width: 60vw;
         font-size: 1.125rem;
         color: ${THEME_DARK_GRAY};
@@ -50,13 +52,13 @@ export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: st
         white-space: nowrap;
         text-decoration: ${(props) => props.completed ? 'line-through' : 'none'}
       }
-      p {
+      > p {
         font-size: 0.875rem;
         color: ${THEME_GRAY};
       }
     }
   }
-  button {
+  > button {
     border: none;
     background-color: ${(props) => props.bgColor};
   }

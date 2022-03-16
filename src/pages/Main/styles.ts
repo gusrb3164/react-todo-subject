@@ -11,11 +11,11 @@ export const MainLayoutContainer = styled.div<{ bgColor: string }>`
 export const ContentsContainer = styled.main`
   padding: 0 1rem;
   margin-bottom: auto;
-  section {
+  > section {
     margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
-    h2 {
+    > h2 {
       margin-bottom: 1.25rem;
       font-size: 1.125rem;
       color: #696969;

@@ -24,10 +24,10 @@ const Header: React.VFC = () => {
     <HeaderContainer>
       <Logo />
       <div>
-        <button className="modalButton" onClick={onClickFilterIcon}>
+        <button onClick={onClickFilterIcon}>
           <FilterIcon />
         </button>
-        <button className="modalButton" onClick={onClickAddIcon}>
+        <button onClick={onClickAddIcon}>
           <AddIcon />
         </button>
       </div>

@@ -5,11 +5,11 @@ export const HeaderContainer = styled.header`
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
-  div {
+  > div {
     height: 100%;
     display: flex;
     align-items: center;
-    .modalButton {
+    > button {
       padding: 0;
       border: none;
       background: none;

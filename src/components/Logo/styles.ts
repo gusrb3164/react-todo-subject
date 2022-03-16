@@ -3,18 +3,15 @@ import styled from 'styled-components';
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  p {
+  > p {
     font-size: 3rem;
     font-weight: 900;
     margin-right: 0.25rem;
   }
-  div {
-    margin-top: 0.25rem;
-    margin-right: 0.225rem;
-    margin-bottom: 0.375rem;
+  > div {
     position: relative;
-    display: inline-block;
-    button {
+    margin-right: 0.25rem;
+    > button {
       width: 2.25rem;
       height: 2.25rem;
       border: none;
@@ -25,10 +22,10 @@ export const LogoContainer = styled.div`
         linear-gradient(336deg, rgba(246,139,125,.8), rgba(246,139,125,0) 70.71%);
       cursor: pointer;
     }
-    input {
+    > input {
       position: absolute;
       left: 0;
-      top: 25%;
+      top: 0;
       width: 2.25rem;
       height: 2.25rem;
       width: 100%;

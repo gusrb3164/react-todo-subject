@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  a {
+  > a {
     font-size: 1rem;
     color: ${THEME_GRAY};
     text-decoration: none;
