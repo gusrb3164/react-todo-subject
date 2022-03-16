@@ -3,7 +3,7 @@ import { LabelType, TodoType } from '../types';
 
 type TodoContextType = {
   todos: TodoType[];
-  addTodo: (todo: TodoType) => void;
+  addTodos: (todos: TodoType[]) => void;
   deleteTodo: (id: number) => void;
   updateStatus: (id: number) => void;
 };
@@ -21,7 +21,7 @@ const defaultState = {
       createdAt: '',
     },
   ],
-  addTodo: () => {},
+  addTodos: () => {},
   deleteTodo: () => {},
   updateStatus: () => {},
 };

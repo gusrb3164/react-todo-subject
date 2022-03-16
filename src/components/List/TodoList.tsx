@@ -7,23 +7,23 @@ import { TodoListContainer } from './styles';
 
 const TodoList: React.VFC = () => {
   const { filter } = useContext(FilterContext);
-  const { todos, addTodo } = useContext(TodoContext);
+  const { todos, addTodos } = useContext(TodoContext);
 
   useLayoutEffect(() => {
     if (todos.length !== 0) return;
     const localTodos = localStorage.getItem('localTodos');
     if (localTodos) {
-      JSON.parse(localTodos).map((item: TodoType) => (
-        addTodo({
-          id: item.id,
-          label: item.label,
-          text: item.text,
-          completed: item.completed,
-          createdAt: item.createdAt,
-        })
-      ))
+      const formattedLocalTodos = JSON.parse(localTodos).map((item: TodoType) => ({
+        id: item.id,
+        label: item.label,
+        text: item.text,
+        completed: item.completed,
+        createdAt: item.createdAt,
+      }))
+      addTodos(formattedLocalTodos);
     }
-  }, [todos,addTodo]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('localTodos', JSON.stringify(todos));

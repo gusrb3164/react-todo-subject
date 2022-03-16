@@ -9,7 +9,7 @@ type TodoProviderProps = {
 const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
-  const addTodo = (todo: TodoType): void => setTodos(todos => todos.concat(todo));
+  const addTodos = (newTodos: TodoType[]): void => setTodos(todos => todos.concat(newTodos));
   const deleteTodo = (id: number): void => setTodos(todos => todos.filter(value => value.id !== id));
   const updateStatus = (id: number): void => {
     const todo = todos.filter(value => value.id === id)[0];
@@ -19,7 +19,7 @@ const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
   }
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateStatus }}>
+    <TodoContext.Provider value={{ todos, addTodos, deleteTodo, updateStatus }}>
       {children}
     </TodoContext.Provider>
   )

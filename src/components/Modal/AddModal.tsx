@@ -7,7 +7,7 @@ import { AddModalContainer } from './styles';
 import { THEME_BLUE, THEME_GRAY, THEME_RED, THEME_WHITE, THEME_YELLOW } from '../../utils/GlobalStyle';
 
 const AddModal: React.VFC = () => {
-  const { addTodo } = useContext(TodoContext);
+  const { addTodos } = useContext(TodoContext);
   const { bgColor, handleAddModalVisible } = useContext(UIContext);
 
   const [tody, setTody] = useState('');
@@ -15,13 +15,13 @@ const AddModal: React.VFC = () => {
 
   const onClickAdd = () => {
     if (tody.length === 0) return alert('Enter your Tody!');
-    addTodo({
+    addTodos([{
       id: dayjs().valueOf(),
       label,
       text: tody,
       completed: false,
       createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-    });
+    }])
     handleAddModalVisible(false);
   }
 
