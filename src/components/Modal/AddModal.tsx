@@ -14,17 +14,15 @@ const AddModal: React.VFC = () => {
   const [label, setLabel] = useState<LabelType>({ id: 1, name: 'Need' });
 
   const onClickAdd = () => {
-    if (tody.length === 0) alert('Enter your Tody!');
-    else {
-      addTodo({
-        id: dayjs().valueOf(),
-        label,
-        text: tody,
-        completed: false,
-        createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-      });
-      handleAddModalVisible(false);
-    }
+    if (tody.length === 0) return alert('Enter your Tody!');
+    addTodo({
+      id: dayjs().valueOf(),
+      label,
+      text: tody,
+      completed: false,
+      createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
+    });
+    handleAddModalVisible(false);
   }
 
   return (

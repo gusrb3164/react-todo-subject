@@ -10,19 +10,18 @@ const TodoList: React.VFC = () => {
   const { todos, addTodo } = useContext(TodoContext);
 
   useLayoutEffect(() => {
-    if (todos.length === 0) {
-      const localTodos = localStorage.getItem('localTodos');
-      if (localTodos) {
-        JSON.parse(localTodos).map((item: TodoType) => (
-          addTodo({
-            id: item.id,
-            label: item.label,
-            text: item.text,
-            completed: item.completed,
-            createdAt: item.createdAt,
-          })
-        ))
-      }
+    if (todos.length !== 0) return;
+    const localTodos = localStorage.getItem('localTodos');
+    if (localTodos) {
+      JSON.parse(localTodos).map((item: TodoType) => (
+        addTodo({
+          id: item.id,
+          label: item.label,
+          text: item.text,
+          completed: item.completed,
+          createdAt: item.createdAt,
+        })
+      ))
     }
   }, [todos,addTodo]);
 
