@@ -8,7 +8,7 @@ import { THEME_BLUE, THEME_GRAY, THEME_RED, THEME_WHITE, THEME_YELLOW } from '..
 
 const AddModal: React.VFC = () => {
   const { addTodos } = useContext(TodoContext);
-  const { bgColor, handleAddModalVisible } = useContext(UIContext);
+  const { bgColor, setAddModalVisible } = useContext(UIContext);
 
   const [tody, setTody] = useState('');
   const [label, setLabel] = useState<LabelType>({ id: 1, name: 'Need' });
@@ -22,7 +22,7 @@ const AddModal: React.VFC = () => {
       completed: false,
       createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
     }])
-    handleAddModalVisible(false);
+    setAddModalVisible(false);
   }
 
   return (

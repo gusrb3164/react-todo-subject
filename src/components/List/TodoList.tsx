@@ -22,7 +22,7 @@ const TodoList: React.VFC = () => {
       }))
       addTodos(formattedLocalTodos);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

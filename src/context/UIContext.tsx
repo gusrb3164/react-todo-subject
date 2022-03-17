@@ -3,20 +3,20 @@ import { THEME_WHITE } from '../utils/GlobalStyle';
 
 type UIContextType = {
   filterModalVisible: boolean;
+  setFilterModalVisible: (filterModalVisible: boolean) => void;
   addModalVisible: boolean;
+  setAddModalVisible: (AddModalVisible: boolean) => void;
   bgColor: string;
-  handleFilterModalVisible: (filterModalVisible: boolean) => void;
-  handleAddModalVisible: (AddModalVisible: boolean) => void;
-  handleBgColor: (bgColor: string) => void;
+  setBgColor: (bgColor: string) => void;
 };
 
 const defaultState = {
   filterModalVisible: false,
+  setFilterModalVisible: () => {},
   addModalVisible: false,
+  setAddModalVisible: () => {},
   bgColor: THEME_WHITE,
-  handleFilterModalVisible: () => {},
-  handleAddModalVisible: () => {},
-  handleBgColor: () => {},
+  setBgColor: () => {},
 };
 
 const UIContext = createContext<UIContextType>(defaultState);

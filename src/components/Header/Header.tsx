@@ -6,18 +6,16 @@ import UIContext from '../../context/UIContext';
 import { HeaderContainer } from './styles';
 
 const Header: React.VFC = () => {
-  const {
-    handleFilterModalVisible,
-    handleAddModalVisible } = useContext(UIContext);
+  const { setFilterModalVisible, setAddModalVisible } = useContext(UIContext);
 
   const onClickFilterIcon = () => {
-    handleAddModalVisible(false);
-    handleFilterModalVisible(true);
+    setAddModalVisible(false);
+    setFilterModalVisible(true);
   }
 
   const onClickAddIcon = () => {
-    handleFilterModalVisible(false);
-    handleAddModalVisible(true);
+    setFilterModalVisible(false);
+    setAddModalVisible(true);
   }
   
   return (

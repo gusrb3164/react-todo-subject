@@ -11,19 +11,15 @@ const UIProvider: React.FC<UIProviderProps> = ({ children }) => {
   const [addModalVisible, setAddModalVisible] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>(THEME_WHITE);
 
-  const handleFilterModalVisible = (filterModalVisible: boolean): void => setFilterModalVisible(filterModalVisible);
-  const handleAddModalVisible = (addModalVisible: boolean): void => setAddModalVisible(addModalVisible);
-  const handleBgColor = (bgColor: string): void => setBgColor(bgColor);
-
   return (
     <UIContext.Provider
       value={{
         filterModalVisible,
+        setFilterModalVisible,
         addModalVisible,
+        setAddModalVisible,
         bgColor,
-        handleFilterModalVisible,
-        handleAddModalVisible,
-        handleBgColor
+        setBgColor
       }}
     >
       {children}

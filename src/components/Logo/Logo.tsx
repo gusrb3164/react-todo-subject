@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { LogoContainer } from './styles';
 import UIContext from '../../context/UIContext';
 import { debounce } from 'lodash';
 
 const Logo: React.VFC = () => {
-  const { bgColor, handleBgColor } = useContext(UIContext);
+  const { bgColor, setBgColor } = useContext(UIContext);
 
   const [color, setColor] = useState(bgColor);
 
   const debounceChangeHandler = useMemo(() => debounce((color) => {
-    handleBgColor(color);
+    setBgColor(color);
     localStorage.setItem('bgColor', color);
-  }, 400), [handleBgColor]);
+  }, 400), [setBgColor]);
 
   useEffect(() => {
     debounceChangeHandler(color);
-  }, [debounceChangeHandler, color]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [color]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const initialColor = localStorage.getItem('bgColor');
     if (initialColor) setColor(initialColor);
   }, []);

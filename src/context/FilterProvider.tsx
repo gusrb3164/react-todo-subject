@@ -8,10 +8,8 @@ type FilterProviderProps = {
 const FilterProvider: React.FC<FilterProviderProps> = ({ children }) => {
   const [filter, setFilter] = useState<string>('all');
 
-  const handleFilter = (filter: string): void => setFilter(filter);
-
   return (
-    <FilterContext.Provider value={{ filter, handleFilter }}>
+    <FilterContext.Provider value={{ filter, setFilter }}>
       {children}
     </FilterContext.Provider>
   )
