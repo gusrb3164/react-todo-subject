@@ -6,12 +6,13 @@ import { TodoType } from '../../types';
 import { TodoListContainer } from './styles';
 
 const TodoList: React.VFC = () => {
-  const { filter } = useContext(FilterContext);
+  const { filter, setFilter } = useContext(FilterContext);
   const { todos, addTodos } = useContext(TodoContext);
 
   useLayoutEffect(() => {
     if (todos.length !== 0) return;
     const localTodos = localStorage.getItem('localTodos');
+    const localFilter = localStorage.getItem('localFilter');
     if (localTodos) {
       const formattedLocalTodos = JSON.parse(localTodos).map((item: TodoType) => ({
         id: item.id,
@@ -22,12 +23,17 @@ const TodoList: React.VFC = () => {
       }))
       addTodos(formattedLocalTodos);
     }
+    if(localFilter) setFilter(localFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     localStorage.setItem('localTodos', JSON.stringify(todos));
   }, [todos]);
+
+  useEffect(() => {
+    localStorage.setItem('localFilter', filter);
+  }, [filter]);
 
   return (
     <TodoListContainer>

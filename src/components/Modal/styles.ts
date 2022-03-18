@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { THEME_RED, THEME_LIGHT_GRAY, THEME_GRAY } from '../../utils/GlobalStyle';
+import { THEME_RED, THEME_LIGHT_GRAY, THEME_GRAY, THEME_BLACK } from '../../utils/GlobalStyle';
 
-export const FilterModalContainer = styled.dialog<{ bgColor: string }>`
+export const FilterModalContainer = styled.div<{ bgColor: string }>`
+  position: absolute;
   top: 4rem;
   width: 100%;
   padding: 1rem 0;
@@ -22,6 +23,7 @@ export const FilterModalContainer = styled.dialog<{ bgColor: string }>`
     > p {
       margin-left: 0.5rem;
       font-size: 1.125rem;
+      color: ${THEME_BLACK};
     }
   }
   > button:last-child {
@@ -33,7 +35,8 @@ export const FilterModalContainer = styled.dialog<{ bgColor: string }>`
   }
 `;
 
-export const AddModalContainer = styled.dialog<{ bgColor: string }>`
+export const AddModalContainer = styled.div<{ bgColor: string }>`
+  position: absolute;
   top: 4rem;
   width: 100%;
   padding: 1rem 0;
@@ -48,6 +51,7 @@ export const AddModalContainer = styled.dialog<{ bgColor: string }>`
     width: 80%;
     border: none;
     border-bottom: 1px solid black;
+    border-radius: 0;
     background-color: ${props => props.bgColor};
     font-size: 1rem;
     ::placeholder {
@@ -62,10 +66,10 @@ export const AddModalContainer = styled.dialog<{ bgColor: string }>`
     width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     > li {
       > button {
-        width: 5rem;
+        width: 5.5rem;
         height: 2rem;
         margin: 1rem 0;
         background-color: ${props => props.bgColor};
