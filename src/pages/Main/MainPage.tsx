@@ -28,9 +28,9 @@ const MainPage: React.VFC = () => {
           <TodoList />
         </section>
       </ContentsContainer>
+      <Footer />
       {filterModalVisible && <FilterModal />}
       {addModalVisible && <AddModal />}
-      <Footer />
     </MainLayoutContainer>
   )
 }

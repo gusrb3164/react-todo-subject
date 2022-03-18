@@ -1,12 +1,13 @@
 import { createContext } from 'react';
+import { FilterType } from '../types';
 
 type FilterContextType = {
-  filter: string;
-  setFilter: (filter: string) => void;
+  filter: FilterType;
+  setFilter: (filter: FilterType) => void;
 };
 
 const defaultState = {
-  filter: 'all',
+  filter: 'all' as FilterType,
   setFilter: () => {},
 };
 

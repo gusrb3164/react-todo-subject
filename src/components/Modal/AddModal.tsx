@@ -1,24 +1,25 @@
 import React, { useState, useContext } from 'react';
 import dayjs from 'dayjs';
+import LabelButton from '../Button/LabelButton';
 import TodoContext from '../../context/TodoContext';
 import UIContext from '../../context/UIContext';
 import { LabelType } from '../../types';
 import { AddModalContainer } from './styles';
-import { THEME_BLUE, THEME_GRAY, THEME_RED, THEME_WHITE, THEME_YELLOW } from '../../utils/GlobalStyle';
+import { THEME_BLUE, THEME_RED, THEME_YELLOW } from '../../utils/GlobalStyle';
 
 const AddModal: React.VFC = () => {
-  const { addTodos } = useContext(TodoContext);
   const { bgColor, setAddModalVisible } = useContext(UIContext);
+  const { addTodos } = useContext(TodoContext);
 
-  const [tody, setTody] = useState('');
+  const [todoText, setTodoText] = useState('');
   const [label, setLabel] = useState<LabelType>({ id: 1, name: 'Need' });
 
   const onClickAdd = () => {
-    if (tody.length === 0) return alert('Enter your Tody!');
+    if (todoText.length === 0) return alert('Enter your Tody!');
     addTodos([{
       id: dayjs().valueOf(),
       label,
-      text: tody,
+      text: todoText,
       completed: false,
       createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
     }])
@@ -30,45 +31,33 @@ const AddModal: React.VFC = () => {
       <input
         type="text"
         placeholder="Enter new TODY"
-        value={tody}
-        onChange={(e) => setTody(e.target.value)}
+        value={todoText}
+        onChange={(e) => setTodoText(e.target.value)}
       />
       <ol>
         <li>
-          <button
-            style={{
-              borderColor: THEME_YELLOW,
-              backgroundColor: label.name === 'Need' ? THEME_YELLOW : bgColor,
-              color: label.name === 'Need' ? THEME_WHITE : THEME_GRAY
-            }}
-            onClick={() => setLabel({ id: 1, name: 'Need' })}
-          >
-            Need
-          </button>
+          <LabelButton
+            label={{ id: 1, name: 'Need' }}
+            color={THEME_YELLOW}
+            labelState={label}
+            setLabel={setLabel}
+          />
         </li>
         <li>
-          <button
-            style={{
-              borderColor: THEME_RED,
-              backgroundColor: label.name === 'Want' ? THEME_RED : bgColor,
-              color: label.name === 'Want' ? THEME_WHITE : THEME_GRAY
-            }}
-            onClick={() => setLabel({ id: 2, name: 'Want' })}
-          >
-            Want
-          </button>
+          <LabelButton
+            label={{ id: 2, name: 'Want' }}
+            color={THEME_RED}
+            labelState={label}
+            setLabel={setLabel}
+          />
         </li>
         <li>
-          <button
-            style={{
-              borderColor: THEME_BLUE,
-              backgroundColor: label.name === 'Routine' ? THEME_BLUE : bgColor,
-              color: label.name === 'Routine' ? THEME_WHITE : THEME_GRAY
-            }}
-            onClick={() => setLabel({ id: 3, name: 'Routine' })}
-          >
-            Routine
-          </button>
+          <LabelButton
+            label={{ id: 3, name: 'Routine' }}
+            color={THEME_BLUE}
+            labelState={label}
+            setLabel={setLabel}
+          />
         </li>
       </ol>
       <button onClick={onClickAdd}>

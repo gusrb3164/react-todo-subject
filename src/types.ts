@@ -1,3 +1,5 @@
+export type FilterType = 'all' | 'active' | 'completed';
+
 export type LabelType = {
   id: 1 | 2 | 3;
   name: 'Need' | 'Want' | 'Routine';

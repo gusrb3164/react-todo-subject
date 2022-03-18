@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useLayoutEffect, useContext } from 'react';
 import FilterContext from '../../context/FilterContext';
 import TodoContext from '../../context/TodoContext';
 import TodoListItem from './TodoListItem';
-import { TodoType } from '../../types';
+import { FilterType, TodoType } from '../../types';
 import { TodoListContainer } from './styles';
 
 const TodoList: React.VFC = () => {
@@ -23,8 +24,7 @@ const TodoList: React.VFC = () => {
       }))
       addTodos(formattedLocalTodos);
     }
-    if(localFilter) setFilter(localFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if(localFilter) setFilter(localFilter as FilterType);
   }, []);
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { LogoContainer } from './styles';
 import UIContext from '../../context/UIContext';
@@ -11,11 +12,10 @@ const Logo: React.VFC = () => {
   const debounceChangeHandler = useMemo(() => debounce((color) => {
     setBgColor(color);
     localStorage.setItem('bgColor', color);
-  }, 400), [setBgColor]);
+  }, 400), []);
 
   useEffect(() => {
     debounceChangeHandler(color);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color]);
 
   useLayoutEffect(() => {

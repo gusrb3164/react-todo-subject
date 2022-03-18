@@ -10,7 +10,7 @@ interface LabelListItemProps {
 const LabelListItem: React.VFC<LabelListItemProps> = ({label}) => {
   return (
     <LabelListItemContainer color={getColor(false, label)}>
-      {label.name as string}
+      {label.name}
     </LabelListItemContainer>
   )
 }
