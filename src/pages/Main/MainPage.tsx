@@ -6,7 +6,7 @@ import TodoList from '../../components/List/TodoList';
 import Footer from '../../components/Footer/Footer';
 import FilterModal from '../../components/Modal/FilterModal';
 import AddModal from '../../components/Modal/AddModal';
-import { MainLayoutContainer, ContentsContainer } from './styles';
+import { MainLayoutContainer, ContentsContainer, BackgroundContainer } from './styles';
 
 const MainPage: React.VFC = () => {
   const {
@@ -16,22 +16,24 @@ const MainPage: React.VFC = () => {
   } = useContext(UIContext);
 
   return (
-    <MainLayoutContainer bgColor={bgColor}>
-      <Header />
-      <ContentsContainer>
-        <section>
-          <h2>Labels</h2>
-          <LabelList />
-        </section>
-        <section>
-          <h2>TODYs</h2>
-          <TodoList />
-        </section>
-      </ContentsContainer>
-      <Footer />
-      {filterModalVisible && <FilterModal />}
-      {addModalVisible && <AddModal />}
-    </MainLayoutContainer>
+    <BackgroundContainer>
+      <MainLayoutContainer bgColor={bgColor}>
+        <Header />
+        <ContentsContainer>
+          <section>
+            <h2>Labels</h2>
+            <LabelList />
+          </section>
+          <section>
+            <h2>TODYs</h2>
+            <TodoList />
+          </section>
+        </ContentsContainer>
+        <Footer />
+        {filterModalVisible && <FilterModal />}
+        {addModalVisible && <AddModal />}
+      </MainLayoutContainer>
+    </BackgroundContainer>
   )
 }
 

@@ -44,7 +44,7 @@ export const TodoListItemContainer = styled.li<{ completed: boolean, bgColor: st
       flex-direction: column;
       justify-content: space-around;
       > h3 {
-        width: 60vw;
+        max-width: 60vw;
         font-size: 1.125rem;
         color: ${THEME_DARK_GRAY};
         overflow: hidden;

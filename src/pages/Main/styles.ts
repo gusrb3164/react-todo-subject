@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
+export const BackgroundContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const MainLayoutContainer = styled.div<{ bgColor: string }>`
   width: 100%;
+  max-width: 820px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
